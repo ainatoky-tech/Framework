@@ -23,3 +23,34 @@ jar -cf mon-framework.jar framework/
 # -cf : createfile pour java
 
 ```
+
+## Dans docker 
+il faut bien sûr qu'il est bien configurée : il faut au moins qu'il possède servlet-api.jar pour fonctionner dans cet endroi en particulier 
+```bash
+root@de6ce5beef5d:/usr/local# cd tomcat
+root@de6ce5beef5d:/usr/local/tomcat# ls
+bin           CONTRIBUTING.md  LICENSE         NOTICE         RUNNING.txt    webapps
+BUILDING.txt  filtered-KEYS    logs            README.md      temp           webapps.dist
+conf          lib              native-jni-lib  RELEASE-NOTES  upstream-KEYS  work
+root@de6ce5beef5d:/usr/local/tomcat# cd lib
+root@de6ce5beef5d:/usr/local/tomcat/lib# ls
+annotations-api.jar                    jaspic-api.jar         tomcat-i18n-ko.jar
+catalina-ant.jar                       jsp-api.jar            tomcat-i18n-pt-BR.jar
+catalina-ha.jar                        servlet-api.jar        tomcat-i18n-ru.jar
+catalina.jar                           tomcat-api.jar         tomcat-i18n-zh-CN.jar
+catalina-ssi.jar                       tomcat-coyote-ffm.jar  tomcat-jdbc.jar
+catalina-storeconfig.jar               tomcat-coyote.jar      tomcat-jni.jar
+catalina-tribes.jar                    tomcat-dbcp.jar        tomcat-util.jar
+ecj-4.27.jar                           tomcat-i18n-cs.jar     tomcat-util-scan.jar
+el-api.jar                             tomcat-i18n-de.jar     tomcat-websocket.jar
+jakartaee-migration-1.0.12-shaded.jar  tomcat-i18n-es.jar     websocket-api.jar
+jasper-el.jar                          tomcat-i18n-fr.jar     websocket-client-api.jar
+jasper.jar                             tomcat-i18n-ja.jar
+root@de6ce5beef5d:/usr/local/tomcat/lib# 
+
+
+# pour pouvoir activé la construction du .jar il faut maintenant :
+javac -cp "/usr/local/tomcat/lib/servlet-api.jar" -d bin $(find src -name "*.java")
+cd bin
+jar -cf mon-framework.jar framework/
+```

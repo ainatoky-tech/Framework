@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FrontController extends HttpServlet {
+    private HashMap<Urlkey, Mapping> mappingUrl = new HashMap<>();
     private final HashMap<String, Mapping> mappingUrls = new HashMap<>();
     private int totalControllersFound = 0;
 
@@ -144,4 +145,54 @@ public class FrontController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
+
+    public void addRoute(String url, String httpMethod, Mapping mapping) throws Exception {
+        Urlkey key = new Urlkey(url, httpMethod);
+
+        // Si la clé (URL + Méthode) existe déjà dans la Map
+        if (mappingUrls.containsKey(key)) {
+            throw new Exception("L'URL '" + url + "' avec la méthode HTTP '" + httpMethod + "' est déjà associée à un contrôleur !");
+        }
+
+        mappingUrl.put(key, mapping);
+    }
+
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 1. Récupération de l'URL et de la méthode HTTP de la requête
+        String urlInterceptee = request.getRequestURI().substring(request.getContextPath().length());
+        String httpMethod = request.getMethod(); // Renvoie "GET", "POST", etc.
+
+        // 2. Création de la clé de recherche
+        Urlkey lookupKey = new Urlkey(urlInterceptee, httpMethod);
+
+        // 3. Recherche du Mapping associé
+        Mapping mapping = mappingUrls.get(lookupKey);
+
+        if (mapping == null) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Aucun contrôleur trouvé pour " + lookupKey);
+            return;
+        }
+
+        try {
+            // 4. instanciation et invocation dynamique (Reflect)
+            Class<?> clazz = Class.forName(mapping.getClassname());
+            Object controllerInstance = clazz.getDeclaredConstructor().newInstance();
+            
+            // Récupération de la méthode par son nom
+            java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodname());
+            
+            // Exécution !
+            methodToExecute.invoke(controllerInstance);
+
+            // Affichage de confirmation demandé par le Sprint 3.2
+            System.out.println("[SUCCESS] Méthode exécutée par réflexion : " + mapping.getMethodname() + " dans " + mapping.getClassname());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur lors de l'exécution : " + e.getMessage());
+        }
+    }
+
+    
 }
