@@ -1,9 +1,4 @@
-<>
-    <>
-    <>
-    <>
-    <>
-
+# voici le devoir en gros :
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
