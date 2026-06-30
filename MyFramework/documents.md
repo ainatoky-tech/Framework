@@ -52,5 +52,5 @@ root@de6ce5beef5d:/usr/local/tomcat/lib#
 # pour pouvoir activé la construction du .jar il faut maintenant :
 javac -cp "/usr/local/tomcat/lib/servlet-api.jar" -d bin $(find src -name "*.java")
 cd bin
-jar -cf mon-framework.jar framework/
+jar -cf mon-framework.jar src/
 ```

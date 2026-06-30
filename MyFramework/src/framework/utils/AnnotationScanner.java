@@ -9,9 +9,9 @@ import java.util.HashMap;
 
 public class AnnotationScanner {
     
-    // Changement du type de retour : void -> int
-    public static int scanComponents(String packageToScan, HashMap<String, Mapping> mappingUrls) throws Exception {
-        int controllerCount = 0; // Compteur pour le Sprint 1 / Exigences
+    // Modification de la signature : On accepte maintenant HashMap<Urlkey, Mapping>
+    public static int scanComponents(String packageToScan, HashMap<Urlkey, Mapping> mappingUrls) throws Exception {
+        int controllerCount = 0; 
         
         String path = packageToScan.replace('.', '/');
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -38,20 +38,29 @@ public class AnnotationScanner {
                         String className = packageToScan + "." + file.getName().substring(0, file.getName().length() - 6);
                         Class<?> clazz = Class.forName(className);
 
-                        // Sprint 1 : Vérification du @Controller
                         if (clazz.isAnnotationPresent(Controller.class)) {
-                            controllerCount++; // Un contrôleur de plus trouvé !
+                            controllerCount++; 
                             System.out.println("[CLASSE DÉTECTÉE] -> " + clazz.getName());
 
-                            // Sprint 2 : Extraction des méthodes avec @UrlMapping
                             for (Method method : clazz.getDeclaredMethods()) {
                                 if (method.isAnnotationPresent(UrlMapping.class)) {
                                     UrlMapping mapping = method.getAnnotation(UrlMapping.class);
                                     String url = mapping.value();
+                                    
+                                    // SPRINT 3 : Pour l'instant, on affecte "GET" par défaut lors du scan
+                                    String httpMethod = "GET"; 
 
-                                    // Stockage dans la table de hachage
-                                    mappingUrls.put(url, new Mapping(clazz.getName(), method.getName()));
-                                    System.out.println("  └── Enregistré : " + url + " ──> " + method.getName() + "()");
+                                    // Création de la clé unique URL + Méthode HTTP
+                                    Urlkey key = new Urlkey(url, httpMethod);
+
+                                    // Vérification d'unicité demandée par le Sprint 3
+                                    if (mappingUrls.containsKey(key)) {
+                                        throw new Exception("[DUPLICATE ROUTE ERROR] L'URL '" + url + "' avec la méthode " + httpMethod + " est déjà déclarée !");
+                                    }
+
+                                    // Stockage sécurisé
+                                    mappingUrls.put(key, new Mapping(clazz.getName(), method.getName()));
+                                    System.out.println("  └── Enregistré : [" + httpMethod + "] " + url + " ──> " + method.getName() + "()");
                                 }
                             }
                         }
@@ -59,6 +68,6 @@ public class AnnotationScanner {
                 }
             }
         }
-        return controllerCount; // Renvoie le nombre total trouvé
+        return controllerCount; 
     }
 }
