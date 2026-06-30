@@ -20,4 +20,11 @@ public class EmpController {
     public void create() {
         System.out.println("-> [CONSOLE] J'ajoute un employé (POST)");
     }
+
+    // ici les tests 
+
+    @UrlMapping(value = "/emp/list", method = "GET") 
+    public void listAncienne() {
+        
+    }
 }

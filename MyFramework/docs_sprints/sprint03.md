@@ -35,3 +35,4 @@ appeler la méthode urlméthode par reflect et la méthode doit avoir un sysout 
 dans la classe du dev faire deux classe ayant le même méthode et les mêmes url en get et on doit voir une exception qui indique que map doit implémenter equals et hasquote(ou hascode) je crois pour voir s'il y a une clé dans tel endroit cela montre si ils sont égaux lorsqu'ils ont le même méthode et le même url
 
 pourquoi mettre hascode(ou hasquote) je vais voir 
+maintenant il y a une question de context key = true et qui fait quoi 

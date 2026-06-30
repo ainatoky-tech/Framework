@@ -67,3 +67,5 @@ il doit maintenant lister les url de @UrlMapping(a créer avec les conditions pr
     /emp/new  --> EmpController --> void create()
 
 bien sur pour les méthodes on n'affiche que le nom des méthodes 
+
+maintenant il y a une question de context key = true et qui fait quoi 
