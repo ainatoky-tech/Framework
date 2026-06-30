@@ -12,7 +12,6 @@ TOMCAT_WEBAPPS="$TOMCAT_DIR/webapps"
 SERVLET_API_JAR="$LIB_DIR/servlet-api.jar"
 WEBINF_LIB="$WEB_DIR/WEB-INF/lib"
 
-echo "=== Début du déploiement ==="
 
 # Nettoyage complet de l'ancien build pour repartir sur du propre
 rm -rf $BUILD_DIR

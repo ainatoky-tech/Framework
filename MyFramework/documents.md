@@ -19,7 +19,7 @@ javac -cp "/home/itu/Documents/apache-tomcat-10.0.16/lib/servlet-api.jar" -d bin
 # il faut mettre dans cette commande toute les classes que tu utilises s'ils sont important
 # il créera un dossier bin avec la même structure que le dossier dans lequel tu travailles 
 cd bin
-jar -cf mon-framework.jar framework/
+jar -cf mon-framework.jar src/
 # -cf : createfile pour java
 
 ```

@@ -9,7 +9,6 @@ import java.util.HashMap;
 
 public class AnnotationScanner {
     
-    // Modification de la signature : On accepte maintenant HashMap<Urlkey, Mapping>
     public static int scanComponents(String packageToScan, HashMap<Urlkey, Mapping> mappingUrls) throws Exception {
         int controllerCount = 0; 
         
@@ -47,13 +46,13 @@ public class AnnotationScanner {
                                     UrlMapping mapping = method.getAnnotation(UrlMapping.class);
                                     String url = mapping.value();
                                     
-                                    // SPRINT 3 : Pour l'instant, on affecte "GET" par défaut lors du scan
-                                    String httpMethod = "GET"; 
+                                    // REFIXE DYNAMIQUE DU SPRINT 3 : On extrait la vraie méthode HTTP configurée !
+                                    String httpMethod = mapping.method().toUpperCase(); 
 
                                     // Création de la clé unique URL + Méthode HTTP
                                     Urlkey key = new Urlkey(url, httpMethod);
 
-                                    // Vérification d'unicité demandée par le Sprint 3
+                                    // Vérification d'unicité réelle
                                     if (mappingUrls.containsKey(key)) {
                                         throw new Exception("[DUPLICATE ROUTE ERROR] L'URL '" + url + "' avec la méthode " + httpMethod + " est déjà déclarée !");
                                     }
