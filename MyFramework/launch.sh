@@ -10,7 +10,7 @@ cd $(pwd)
 
 if [ -e "$MON_FRAMEWORK" ]; then
     rm "$MON_FRAMEWORK"
-    echo "$MON_FRAMEWORK supprimer avec succes"
+    echo "ancient $MON_FRAMEWORK détecter et supprimer avec succes"
 fi
 javac -cp "/home/itu/Documents/apache-tomcat-10.0.16/lib/servlet-api.jar" -d bin $(find src -name "*.java")
 echo "======étape de jar======"
@@ -30,6 +30,6 @@ if [ -d "src" ]; then
         rm $MON_FRAMEWORK
         echo "Ancien JAR supprimé."
     fi
-    cp "$CHEMIN_JAR_SOURCE"
+    cp "$CHEMIN_JAR_SOURCE" .
     echo "nouveau jar mis en place projet prêt a être déployer"
 fi
