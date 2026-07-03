@@ -1,0 +1,39 @@
+[1/4] Compilation des classes Java...
+[2/4] Préparation des fichiers Web...
+[3/4] Création du fichier .war...
+[4/4] Déploiement et redémarrage de Tomcat...
+Using CATALINA_BASE:   /home/itu/Documents/apache-tomcat-10.0.16
+Using CATALINA_HOME:   /home/itu/Documents/apache-tomcat-10.0.16
+Using CATALINA_TMPDIR: /home/itu/Documents/apache-tomcat-10.0.16/temp
+Using JRE_HOME:        /usr
+Using CLASSPATH:       /home/itu/Documents/apache-tomcat-10.0.16/bin/bootstrap.jar:/home/itu/Documents/apache-tomcat-10.0.16/bin/tomcat-juli.jar
+Using CATALINA_OPTS:   
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+juil. 03, 2026 8:39:50 AM org.apache.catalina.startup.Catalina stopServer
+GRAVE: Impossible de se connecter à [localhost : 8005] (port de base [8005] et offset [0]), Tomcat peut ne pas être en cours d'exécution
+juil. 03, 2026 8:39:50 AM org.apache.catalina.startup.Catalina stopServer
+GRAVE: Erreur lors de l'arrêt de Catalina
+java.net.ConnectException: Connexion refusée
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:601)
+	at java.base/sun.nio.ch.Net.connect(Net.java:590)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:692)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:391)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:481)
+
+Using CATALINA_BASE:   /home/itu/Documents/apache-tomcat-10.0.16
+Using CATALINA_HOME:   /home/itu/Documents/apache-tomcat-10.0.16
+Using CATALINA_TMPDIR: /home/itu/Documents/apache-tomcat-10.0.16/temp
+Using JRE_HOME:        /usr
+Using CLASSPATH:       /home/itu/Documents/apache-tomcat-10.0.16/bin/bootstrap.jar:/home/itu/Documents/apache-tomcat-10.0.16/bin/tomcat-juli.jar
+Using CATALINA_OPTS:   
+Tomcat started.
+=== Déploiement terminé avec succès ! ===
