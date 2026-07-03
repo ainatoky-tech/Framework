@@ -8,4 +8,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface UrlMapping {
     String value();//contient l'url ex:("/emp/list")
+    String method() default "GET";
 }

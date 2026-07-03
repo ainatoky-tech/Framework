@@ -12,3 +12,6 @@ MyFramework/.devcontainer
 testFrameworkperso/Dockerfile
 testFrameworkperso/docker-compose.yml
 testFrameworkperso/.devcontainer
+
+#pour les logs:
+testFrameworkperso/log/log1.log

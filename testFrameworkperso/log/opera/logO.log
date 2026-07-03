@@ -1,0 +1,47 @@
+État HTTP 500 – Erreur interne du serveur
+Type Rapport d'exception
+
+message Échec du scan des composants
+
+description Le serveur a rencontré une erreur interne qui l'a empêché de satisfaire la requête.
+
+exception
+
+jakarta.servlet.ServletException: Échec du scan des composants
+	src.framework.servlet.FrontController.init(FrontController.java:38)
+	jakarta.servlet.GenericServlet.init(GenericServlet.java:158)
+	org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+	org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+	org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+	org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	java.base/java.lang.Thread.run(Thread.java:1583)
+cause mère
+
+java.lang.Exception: [DUPLICATE ROUTE ERROR] L'URL '/emp/list' avec la méthode GET est déjà déclarée !
+	src.framework.utils.AnnotationScanner.scanComponents(AnnotationScanner.java:58)
+	src.framework.servlet.FrontController.init(FrontController.java:35)
+	jakarta.servlet.GenericServlet.init(GenericServlet.java:158)
+	org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+	org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+	org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+	org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	java.base/java.lang.Thread.run(Thread.java:1583)
+note La trace complète de la cause mère de cette erreur est disponible dans les fichiers journaux de ce serveur.
+
+Apache Tomcat/10.0.16

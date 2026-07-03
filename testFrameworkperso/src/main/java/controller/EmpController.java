@@ -9,22 +9,22 @@ import java.util.List;
 public class EmpController {
 
     
-    private String messageDeBienvenue = "Bonjour de mon Framework !";
-
-    public void afficherConsole() {
-        System.out.println("La méthode annotée fonctionne !");
+    // Simule une requête GET /emp/list
+    @UrlMapping(value = "/emp/list", method = "GET") // Si ton annotation supporte l'attribut method
+    public void list() {
+        System.out.println("-> [CONSOLE] J'affiche la liste des employés (GET)");
     }
 
-    public void methodeStandard() {
-        // Cette méthode n'a pas d'annotation, elle ne doit pas être affichée
+    // Simule une requête POST /emp/list (par exemple pour soumettre un formulaire)
+    @UrlMapping(value = "/emp/list/create", method = "GET")
+    public void create() {
+        System.out.println("-> [CONSOLE] J'ajoute un employé (GET)");
     }
 
-    @UrlMapping("/emp/create")
-    public void create(){
+    // ici les tests 
 
-    }
-    @UrlMapping("/emp/list")
-    public void lister(){
-
+    @UrlMapping(value = "/emp/list/old", method = "GET") 
+    public String listAncienne() {
+        return ("méthode appellé listancienne()");
     }
 }
