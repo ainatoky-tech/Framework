@@ -5,16 +5,15 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 version="2.4">
 <display-name>Application WEB affichant HelloWorld</display-name>
+    <context-param>
+        <param-name>packageToScan</param-name>
+        <param-value>src.main.java.controller</param-value>
+    </context-param>
+
+    <!-- ÉTAPE B : Déclaration de ton FrontController standard -->
     <servlet>
         <servlet-name>FrontController</servlet-name>
         <servlet-class>src.framework.servlet.FrontController</servlet-class>
-        
-        <init-param>
-            <param-name>packageToScan</param-name>
-            <param-value>src.main.java.controller</param-value>
-        </init-param>
-        
-        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>

@@ -21,3 +21,5 @@ je veux une page de liste qui vient d'une base de donnée
     * redirection via request.Dispatcher on appelle request.getattribute dans la view jsp  
 
 `'le projet en réalité c'est un clone de spring mvc pour faire le devoir voilà ce qu'il fallait'`
+
+il y a maintenant une question sur les singletons bean conteneur 
