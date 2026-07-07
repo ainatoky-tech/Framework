@@ -22,6 +22,8 @@ je veux une page de liste qui vient d'une base de donnée
 
 `'le projet en réalité c'est un clone de spring mvc pour faire le devoir voilà ce qu'il fallait'`
 
+
+## Sprint 05 bis;
 les donnés ne sont plus en dure mais en base de donné 
 si on utilise spring et ensuite il y a problème avec la couche service et repository 
 il y a maintenant une question sur les singletons bean conteneur spring et de cycle de vie 
