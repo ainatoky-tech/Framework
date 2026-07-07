@@ -1,0 +1,9 @@
+=======création du .jar=========
+======étape de compilation======
+ancient mon-framework.jar détecter et supprimer avec succes
+======étape de jar======
+=== remplacement du jar dans testFrameworkperso ===
+execution en cours ...
+Ancien JAR supprimé.
+nouveau jar mis en place projet prêt a être déployer
+=== fin du processus ===
