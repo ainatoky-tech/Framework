@@ -22,4 +22,4 @@ je veux une page de liste qui vient d'une base de donnée
 
 `'le projet en réalité c'est un clone de spring mvc pour faire le devoir voilà ce qu'il fallait'`
 
-il y a maintenant une question sur les singletons bean conteneur 
+il y a maintenant une question sur les singletons bean conteneur spring et de cycle de vie 
