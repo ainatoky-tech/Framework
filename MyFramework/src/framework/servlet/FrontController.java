@@ -18,8 +18,9 @@ public class FrontController extends HttpServlet {
     private final HashMap<Urlkey, Mapping> mappingUrls = new HashMap<>();
     private int totalControllersFound = 0;
 
-    @Override
-    public void init() throws ServletException {
+    
+    // @Override
+    /*public void init() throws ServletException {
         String packageToScan = this.getServletConfig().getInitParameter("packageToScan");
         if (packageToScan == null || packageToScan.isEmpty()) {
             System.out.println("[Framework ERROR] Le paramètre 'packageToScan' est manquant dans web.xml.");
@@ -37,7 +38,7 @@ public class FrontController extends HttpServlet {
         } catch (Exception e) {
             throw new ServletException("Échec du scan des composants", e);
         }
-    }
+    }*/
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {

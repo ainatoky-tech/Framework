@@ -1,0 +1,25 @@
+=======création du .jar=========
+======étape de compilation======
+ancient mon-framework.jar détecter et supprimer avec succes
+src/framework/servlet/FrontController.java:62: error: cannot find symbol
+            if (mappingUrls.isEmpty()) {
+                ^
+  symbol:   variable mappingUrls
+  location: class FrontController
+src/framework/servlet/FrontController.java:65: error: cannot find symbol
+                mappingUrls.forEach((key, map) -> {
+                ^
+  symbol:   variable mappingUrls
+  location: class FrontController
+src/framework/servlet/FrontController.java:73: error: cannot find symbol
+        Mapping mapping = mappingUrls.get(lookupKey);
+                          ^
+  symbol:   variable mappingUrls
+  location: class FrontController
+3 errors
+======étape de jar======
+=== remplacement du jar dans testFrameworkperso ===
+execution en cours ...
+Ancien JAR supprimé.
+nouveau jar mis en place projet prêt a être déployer
+=== fin du processus ===
