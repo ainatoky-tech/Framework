@@ -21,7 +21,11 @@ public class FrontController extends HttpServlet {
         int totalControllersFound = (int) getServletContext().getAttribute("totalControllersFound");
 
         String urlInterceptee = request.getRequestURI().substring(request.getContextPath().length());
-        String httpMethod = request.getMethod();
+        String httpMethod = request.getMethod().toUpperCase(); // <-- FORCE LE MAJUSCULE ICI
+
+        // 🔍 LOGS DE DEBUGGING (Regarde ton terminal Docker quand tu lances l'URL !)
+        System.out.println("[DEBUG FRAMEWORK] URL demandée : " + urlInterceptee);
+        System.out.println("[DEBUG FRAMEWORK] Méthode HTTP : " + httpMethod);
 
         Urlkey lookupKey = new Urlkey(urlInterceptee, httpMethod);
 
@@ -45,11 +49,20 @@ public class FrontController extends HttpServlet {
         }
 
         // 2. Recherche et exécution par Réflexion (invoke)
-        Mapping mapping = mappingUrls.get(lookupKey);
+        Mapping mapping = null;
+        
+        // Si mappingUrls n'est pas null, on cherche la clé
+        if (mappingUrls != null) {
+            mapping = mappingUrls.get(lookupKey);
+        }
+
         if (mapping == null) {
+            System.out.println("[DEBUG FRAMEWORK] Route non trouvée dans la Map pour : [" + httpMethod + "] " + urlInterceptee);
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Route introuvable.");
             return;
         }
+        
+        System.out.println("[DEBUG FRAMEWORK] Route TROUVÉE ! Classe : " + mapping.getClassname() + ", Méthode : " + mapping.getMethodname());
 
         try {
             // 1. Récupération de l'instance (via le sac à dos ou une nouvelle instance selon ton code actuel)
