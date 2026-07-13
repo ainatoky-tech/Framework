@@ -1,0 +1,512 @@
+[2026-07-13T16:17:16.701Z] Dev Containers 0.465.0 in VS Code 1.128.0 (fc3def6774c76082adf699d366f31a557ce5573f).
+[2026-07-13T16:17:16.701Z] Start: Resolving Remote
+[2026-07-13T16:17:16.720Z] Setting up container for folder or workspace: d:\S4\webdynamique\Framework\MyFramework
+[2026-07-13T16:17:16.722Z] Context: desktop-linux
+[2026-07-13T16:17:16.728Z] Start: Run: wsl -l -v
+[2026-07-13T16:17:16.808Z] Stop (80 ms): Run: wsl -l -v
+[2026-07-13T16:17:16.809Z] Start: Run: wsl -d Ubuntu-24.04 -e /bin/sh -c echo ~
+[2026-07-13T16:17:16.972Z] Stop (163 ms): Run: wsl -d Ubuntu-24.04 -e /bin/sh -c echo ~
+[2026-07-13T16:17:16.976Z] Start: Run: wsl -d Ubuntu-24.04 -e /bin/sh -c cd '/home/toky' && /bin/sh
+[2026-07-13T16:17:16.988Z] Start: Run in host: id -un
+[2026-07-13T16:17:17.075Z] toky
+[2026-07-13T16:17:17.077Z] 
+[2026-07-13T16:17:17.078Z] Stop (90 ms): Run in host: id -un
+[2026-07-13T16:17:17.080Z] Start: Run in host:  (command -v getent >/dev/null 2>&1 && getent passwd 'toky' || grep -E '^toky|^[^:]*:[^:]*:toky:' /etc/passwd || true)
+[2026-07-13T16:17:17.085Z] Stop (5 ms): Run in host:  (command -v getent >/dev/null 2>&1 && getent passwd 'toky' || grep -E '^toky|^[^:]*:[^:]*:toky:' /etc/passwd || true)
+[2026-07-13T16:17:17.087Z] Start: Run in host: echo ~
+[2026-07-13T16:17:17.091Z] /home/toky
+[2026-07-13T16:17:17.092Z] 
+[2026-07-13T16:17:17.094Z] Stop (7 ms): Run in host: echo ~
+[2026-07-13T16:17:17.095Z] Start: Run in host: test -f '/home/toky/.vscode-server/cli/servers/Stable-fc3def6774c76082adf699d366f31a557ce5573f/server/node'
+[2026-07-13T16:17:17.098Z] 
+[2026-07-13T16:17:17.100Z] 
+[2026-07-13T16:17:17.101Z] Exit code 1
+[2026-07-13T16:17:17.102Z] Stop (7 ms): Run in host: test -f '/home/toky/.vscode-server/cli/servers/Stable-fc3def6774c76082adf699d366f31a557ce5573f/server/node'
+[2026-07-13T16:17:17.103Z] Start: Run in host: test -f '/home/toky/.vscode/cli/servers/Stable-fc3def6774c76082adf699d366f31a557ce5573f/server/node'
+[2026-07-13T16:17:17.107Z] 
+[2026-07-13T16:17:17.108Z] 
+[2026-07-13T16:17:17.110Z] Exit code 1
+[2026-07-13T16:17:17.111Z] Stop (8 ms): Run in host: test -f '/home/toky/.vscode/cli/servers/Stable-fc3def6774c76082adf699d366f31a557ce5573f/server/node'
+[2026-07-13T16:17:17.112Z] Start: Run in host: test -f '/home/toky/.vscode-server/bin/fc3def6774c76082adf699d366f31a557ce5573f/node'
+[2026-07-13T16:17:17.114Z] 
+[2026-07-13T16:17:17.116Z] 
+[2026-07-13T16:17:17.117Z] Exit code 1
+[2026-07-13T16:17:17.118Z] Stop (6 ms): Run in host: test -f '/home/toky/.vscode-server/bin/fc3def6774c76082adf699d366f31a557ce5573f/node'
+[2026-07-13T16:17:17.120Z] Start: Run in host: test -f '/home/toky/.vscode-remote-containers/bin/fc3def6774c76082adf699d366f31a557ce5573f/node'
+[2026-07-13T16:17:17.123Z] 
+[2026-07-13T16:17:17.125Z] 
+[2026-07-13T16:17:17.126Z] Exit code 1
+[2026-07-13T16:17:17.127Z] Stop (7 ms): Run in host: test -f '/home/toky/.vscode-remote-containers/bin/fc3def6774c76082adf699d366f31a557ce5573f/node'
+[2026-07-13T16:17:17.129Z] Start: Run in host: uname -s
+[2026-07-13T16:17:17.132Z] Linux
+[2026-07-13T16:17:17.134Z] 
+[2026-07-13T16:17:17.135Z] Stop (6 ms): Run in host: uname -s
+[2026-07-13T16:17:17.137Z] Start: Run in host: uname -m
+[2026-07-13T16:17:17.141Z] x86_64
+[2026-07-13T16:17:17.143Z] 
+[2026-07-13T16:17:17.144Z] Stop (7 ms): Run in host: uname -m
+[2026-07-13T16:17:17.145Z] Start: Run in host: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[2026-07-13T16:17:17.149Z] PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+[2026-07-13T16:17:17.151Z] 
+[2026-07-13T16:17:17.152Z] Stop (7 ms): Run in host: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[2026-07-13T16:17:17.153Z] Start: Downloading VS Code Server
+[2026-07-13T16:17:17.155Z] fc3def6774c76082adf699d366f31a557ce5573f linux-x64 stable
+[2026-07-13T16:17:17.157Z] URL: https://update.code.visualstudio.com/commit:fc3def6774c76082adf699d366f31a557ce5573f/server-linux-x64/stable
+[2026-07-13T16:17:17.158Z] Path: C:\Users\Admin\AppData\Local\Temp\vsch\serverCache\fc3def6774c76082adf699d366f31a557ce5573f\vscode-server-linux-x64.tar.gz
+[2026-07-13T16:26:19.172Z] read ECONNRESET
+[2026-07-13T16:26:19.174Z] Retrying to download VS Code Server.
+[2026-07-13T16:26:42.557Z] Stop (565404 ms): Downloading VS Code Server
+[2026-07-13T16:26:42.559Z] Could not connect to WSL.
+[2026-07-13T16:26:42.560Z] Failed to fetch
+[2026-07-13T16:26:42.580Z] Start: Check Docker is running
+[2026-07-13T16:26:42.581Z] Start: Run: docker version
+[2026-07-13T16:26:42.740Z] Client:
+ Version:           29.6.1
+ API version:       1.55
+ Go version:        go1.26.4
+ Git commit:        8900f1d
+ Built:             Fri Jun 26 11:43:32 2026
+ OS/Arch:           windows/amd64
+ Context:           desktop-linux
+
+[2026-07-13T16:26:42.742Z] Server: Docker Desktop 4.81.0 (232925)
+ Engine:
+  Version:          29.6.1
+  API version:      1.55 (minimum version 1.40)
+  Go version:       go1.26.4
+  Git commit:       8ec5ab3
+  Built:            Fri Jun 26 11:41:04 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.2.5
+  GitCommit:        e53c7c1516c3b2bff98eb76f1f4117477e6f4e66
+ runc:
+  Version:          1.3.6
+  GitCommit:        v1.3.6-0-g491b69ba
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[2026-07-13T16:26:42.753Z] Stop (172 ms): Run: docker version
+[2026-07-13T16:26:42.757Z] Stop (177 ms): Check Docker is running
+[2026-07-13T16:26:42.759Z] Start: Run: docker volume ls -q
+[2026-07-13T16:26:42.861Z] Stop (102 ms): Run: docker volume ls -q
+[2026-07-13T16:26:42.863Z] Start: Run: docker ps -q -a --filter label=vsch.local.folder=d:\S4\webdynamique\Framework\MyFramework --filter label=vsch.quality=stable
+[2026-07-13T16:26:42.958Z] Stop (95 ms): Run: docker ps -q -a --filter label=vsch.local.folder=d:\S4\webdynamique\Framework\MyFramework --filter label=vsch.quality=stable
+[2026-07-13T16:26:42.960Z] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework --filter label=devcontainer.config_file=d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json
+[2026-07-13T16:26:43.057Z] Stop (97 ms): Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework --filter label=devcontainer.config_file=d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json
+[2026-07-13T16:26:43.059Z] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework
+[2026-07-13T16:26:43.157Z] Stop (98 ms): Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework
+[2026-07-13T16:26:43.159Z] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework
+[2026-07-13T16:26:43.252Z] Stop (93 ms): Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework
+[2026-07-13T16:26:43.256Z] Running Dev Containers CLI:   up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-fcb5db21-7105-4aef-840c-25d213c162121783959435368 --workspace-folder d:\S4\webdynamique\Framework\MyFramework --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 219 --terminal-rows 21 --include-configuration --include-merged-configuration
+[2026-07-13T16:26:43.266Z] ProxyResolver#loadSystemCertificates count (7ms)
+[2026-07-13T16:26:43.269Z] ProxyResolver#filterExpiredCertificates count filtered
+[2026-07-13T16:26:43.273Z] Start: Run: C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\Code.exe c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.465.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-fcb5db21-7105-4aef-840c-25d213c162121783959435368 --workspace-folder d:\S4\webdynamique\Framework\MyFramework --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 219 --terminal-rows 21 --include-configuration --include-merged-configuration
+[2026-07-13T16:26:43.574Z] @devcontainers/cli 0.88.0. Node.js v24.17.0. win32 10.0.26200 x64.
+[2026-07-13T16:26:43.574Z] Start: Run: docker buildx version
+[2026-07-13T16:26:47.228Z] Stop (3654 ms): Run: docker buildx version
+[2026-07-13T16:26:47.228Z] github.com/docker/buildx v0.35.0-desktop.2 b554ce1decd8b509893b1e7c6227eabfb923d094
+[2026-07-13T16:26:47.228Z] 
+[2026-07-13T16:26:47.229Z] Start: Run: docker -v
+[2026-07-13T16:26:47.306Z] Stop (77 ms): Run: docker -v
+[2026-07-13T16:26:47.306Z] Start: Run: docker version --format {{.Server.Version}}
+[2026-07-13T16:26:47.476Z] Stop (170 ms): Run: docker version --format {{.Server.Version}}
+[2026-07-13T16:26:47.476Z] 29.6.1
+[2026-07-13T16:26:47.476Z] 
+[2026-07-13T16:26:47.476Z] Start: Resolving Remote
+[2026-07-13T16:26:47.484Z] Loading 31 extra certificates from C:\Users\Admin\AppData\Local\Temp\vsch\certificates-7be3d2e68280a0d7363b51c34d34997848faec8eb23978410ee6af0f82f98d0c.pem.
+[2026-07-13T16:26:47.517Z] (node:11076) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-13T16:26:47.519Z] (Use `Code --trace-deprecation ...` to show where the warning was created)
+[2026-07-13T16:27:09.372Z] Failed to fetch control manifest: 
+[2026-07-13T16:27:09.375Z] Start: Run: docker compose version --short
+[2026-07-13T16:27:09.551Z] Stop (176 ms): Run: docker compose version --short
+[2026-07-13T16:27:09.551Z] Docker Compose version: 5.3.0
+[2026-07-13T16:27:09.551Z] Start: Run: docker compose -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml --profile * config
+[2026-07-13T16:27:09.752Z] Stop (201 ms): Run: docker compose -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml --profile * config
+[2026-07-13T16:27:09.752Z] name: myframework
+services:
+  myframework:
+    build:
+      context: d:\S4\webdynamique\Framework\MyFramework
+      dockerfile: Dockerfile
+    container_name: Myframework
+    image: framework-java:1.0
+    networks:
+      dev-network: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: d:\S4\webdynamique\Framework\MyFramework
+        target: /app
+        bind: {}
+      - type: volume
+        source: maven-cache-Framework
+        target: /root/.m2
+        volume: {}
+networks:
+  dev-network:
+    name: dev-network
+    external: true
+volumes:
+  maven-cache-Framework:
+    name: myframework_maven-cache-Framework
+[2026-07-13T16:27:09.756Z] Start: Run: docker ps -q -a --filter label=com.docker.compose.project=myframework --filter label=com.docker.compose.service=myframework
+[2026-07-13T16:27:09.848Z] Stop (92 ms): Run: docker ps -q -a --filter label=com.docker.compose.project=myframework --filter label=com.docker.compose.service=myframework
+[2026-07-13T16:27:09.848Z] Start: Run: docker events --format {{json .}} --filter event=start
+[2026-07-13T16:27:09.861Z] PersistedPath=c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data, ContainerHasLabels=false
+[2026-07-13T16:27:09.862Z] Start: Run: docker compose -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml --profile * config
+[2026-07-13T16:27:10.060Z] Stop (198 ms): Run: docker compose -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml --profile * config
+[2026-07-13T16:27:10.060Z] name: myframework
+services:
+  myframework:
+    build:
+      context: d:\S4\webdynamique\Framework\MyFramework
+      dockerfile: Dockerfile
+    container_name: Myframework
+    image: framework-java:1.0
+    networks:
+      dev-network: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: d:\S4\webdynamique\Framework\MyFramework
+        target: /app
+        bind: {}
+      - type: volume
+        source: maven-cache-Framework
+        target: /root/.m2
+        volume: {}
+networks:
+  dev-network:
+    name: dev-network
+    external: true
+volumes:
+  maven-cache-Framework:
+    name: myframework_maven-cache-Framework
+[2026-07-13T16:27:10.063Z] Start: Run: docker inspect --type image tomcat:10-jdk21
+[2026-07-13T16:27:10.149Z] Stop (86 ms): Run: docker inspect --type image tomcat:10-jdk21
+[2026-07-13T16:27:10.156Z] Docker Compose override file for building image:
+services:
+  myframework:
+    build:
+      dockerfile: C:\Users\Admin\AppData\Local\Temp\devcontainercli\container-features\0.88.0-1783960030150\Dockerfile-with-features
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+        - _DEV_CONTAINERS_BASE_IMAGE=dev_container_auto_added_stage_label
+
+[2026-07-13T16:27:10.159Z] Start: Run: docker compose --project-name myframework -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml -f c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.build-1783960030155.yml build
+[2026-07-13T16:27:10.257Z] 
+[2026-07-13T16:27:10.763Z] #1 [internal] load local bake definitions
+]0;C:\Program Files\Docker\Docker\resources\bin\docker.exe
+[2026-07-13T16:27:10.914Z] #1 reading from stdin 771B 0.0s done
+[2026-07-13T16:27:10.931Z] #1 DONE 0.0s
+[2026-07-13T16:27:11.184Z] 
+[2026-07-13T16:27:11.199Z] #2 [internal] load build definition from Dockerfile-with-features
+#2 transferring dockerfile:
+[2026-07-13T16:27:11.285Z] #2 transferring dockerfile: 1.53kB 0.0s done
+[2026-07-13T16:27:11.308Z] #2 DONE 0.2s#3 [internal] load metadata for docker.io/library/tomcat:10-jdk21
+[2026-07-13T16:27:11.409Z] #3 DONE 0.0s
+[2026-07-13T16:27:11.430Z] 
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+[2026-07-13T16:27:11.565Z] 
+[2026-07-13T16:27:11.566Z] #5 [dev_container_auto_added_stage_label 1/3] FROM docker.io/library/tomcat:10-jdk21
+#5 DONE 0.0s#6 [dev_container_auto_added_stage_label 2/3] WORKDIR /app
+#6 CACHED
+[2026-07-13T16:27:11.566Z] 
+[2026-07-13T16:27:11.566Z] 
+#7 [dev_container_auto_added_stage_label 3/3] RUN apt-get update && apt-get install -y curl && apt-get install -y --no-install-recommends     maven     curl     libxext6     libxrender1     libxtst6     libxi6     libfr
+reetype6     fontconfig     libgtk-3-0     && apt-get clean     && rm -rf /var/lib/apt/lists/*
+[2026-07-13T16:27:11.567Z] 
+#7 CACHED
+[2026-07-13T16:27:11.567Z] 
+#8 exporting to image
+#8 exporting layers done
+[2026-07-13T16:27:11.567Z] 
+#8 preparing layers for inline cache done
+[2026-07-13T16:27:11.567Z] 
+#8 writing image sha256:416f4aca30ba58082b95f96e72e2a9a23241cf20067956c40eb0359e69cac582 done
+[2026-07-13T16:27:11.567Z] 
+#8 naming to docker.io/library/framework-java:1.0 0.0s done
+[2026-07-13T16:27:11.567Z] 
+#8 DONE 0.1s
+[2026-07-13T16:27:11.585Z] 
+[2026-07-13T16:27:11.817Z] 
+#9 resolving provenance for metadata file
+[2026-07-13T16:27:11.834Z] 
+[2026-07-13T16:27:11.860Z] #9 DONE 0.0s
+[2026-07-13T16:27:11.868Z] [+] build 1/1
+[2026-07-13T16:27:11.868Z] 
+ ✔ Image framework-java:1.0 Built1.4s
+[2026-07-13T16:27:11.881Z] 
+[2026-07-13T16:27:14.927Z] Stop (4768 ms): Run: docker compose --project-name myframework -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml -f c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.build-1783960030155.yml build
+[2026-07-13T16:27:14.954Z] Docker Compose override file for creating container:
+services:
+  'myframework':
+    entrypoint: ["/bin/sh", "-c", "echo Container started\n
+trap \"exit 0\" 15\n
+\n
+exec \"$$@\"\n
+while sleep 1 & wait $$!; do :; done", "-"]
+    command: []
+    labels:
+      - 'devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework'
+      - 'devcontainer.config_file=d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json'
+    volumes:
+      - vscode:/vscode
+volumes:
+  
+  vscode:
+    external: true
+[2026-07-13T16:27:14.955Z] Writing docker-compose.devcontainer.containerFeatures-1783960034955-ec6fa625-fd4c-44c0-aa91-e4bd2b490d22.yml to c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose
+[2026-07-13T16:27:14.959Z] Start: Run: docker compose --project-name myframework -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml -f c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.build-1783960030155.yml -f c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.containerFeatures-1783960034955-ec6fa625-fd4c-44c0-aa91-e4bd2b490d22.yml up -d
+[2026-07-13T16:27:15.056Z] 
+[2026-07-13T16:27:15.311Z] ]0;C:\Program Files\Docker\Docker\resources\bin\docker.exe
+[2026-07-13T16:27:15.329Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Creating0.0s
+[2026-07-13T16:27:15.411Z] 
+[2026-07-13T16:27:15.424Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Creating0.1s
+[2026-07-13T16:27:15.511Z] 
+[2026-07-13T16:27:15.525Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.2s
+[2026-07-13T16:27:15.611Z] 
+[2026-07-13T16:27:15.633Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.3s
+[2026-07-13T16:27:15.711Z] 
+[2026-07-13T16:27:15.726Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.4s
+[2026-07-13T16:27:15.811Z] 
+[2026-07-13T16:27:15.829Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.5s
+[2026-07-13T16:27:15.910Z] 
+[2026-07-13T16:27:15.922Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.6s
+[2026-07-13T16:27:16.011Z] [+] up 1/2
+[2026-07-13T16:27:16.031Z] 
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.7s
+[2026-07-13T16:27:16.111Z] [+] up 1/2
+[2026-07-13T16:27:16.124Z] 
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.8s
+[2026-07-13T16:27:16.211Z] 
+[2026-07-13T16:27:16.234Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting0.9s
+[2026-07-13T16:27:16.310Z] 
+[2026-07-13T16:27:16.328Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting1.0s
+[2026-07-13T16:27:16.409Z] Stop (6561 ms): Run: docker events --format {{json .}} --filter event=start
+[2026-07-13T16:27:16.414Z] 
+[2026-07-13T16:27:16.424Z] [+] up 1/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ - Container Myframework                    Starting1.1s
+[2026-07-13T16:27:16.457Z] 
+[2026-07-13T16:27:16.472Z] [+] up 2/2
+ ✔ Volume myframework_maven-cache-Framework Created0.0s
+ ✔ Container MyframeworkStarted1.2s
+[2026-07-13T16:27:17.593Z] Stop (2634 ms): Run: docker compose --project-name myframework -f d:\S4\webdynamique\Framework\MyFramework\docker-compose.yml -f c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.build-1783960030155.yml -f c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.containerFeatures-1783960034955-ec6fa625-fd4c-44c0-aa91-e4bd2b490d22.yml up -d
+[2026-07-13T16:27:17.611Z] Start: Run: docker ps -q -a --filter label=com.docker.compose.project=myframework --filter label=com.docker.compose.service=myframework
+[2026-07-13T16:27:17.716Z] Stop (105 ms): Run: docker ps -q -a --filter label=com.docker.compose.project=myframework --filter label=com.docker.compose.service=myframework
+[2026-07-13T16:27:17.716Z] Start: Run: docker inspect --type container 4da995a15f33
+[2026-07-13T16:27:17.818Z] Stop (102 ms): Run: docker inspect --type container 4da995a15f33
+[2026-07-13T16:27:17.819Z] Start: Inspecting container
+[2026-07-13T16:27:17.819Z] Start: Run: docker inspect --type container 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c
+[2026-07-13T16:27:17.911Z] Stop (92 ms): Run: docker inspect --type container 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c
+[2026-07-13T16:27:17.911Z] Stop (92 ms): Inspecting container
+[2026-07-13T16:27:17.912Z] Start: Run in container: /bin/sh
+[2026-07-13T16:27:17.924Z] Start: Run in container: uname -m
+[2026-07-13T16:27:18.117Z] x86_64
+[2026-07-13T16:27:18.118Z] 
+[2026-07-13T16:27:18.118Z] Stop (194 ms): Run in container: uname -m
+[2026-07-13T16:27:18.118Z] Start: Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[2026-07-13T16:27:18.126Z] PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+[2026-07-13T16:27:18.126Z] 
+[2026-07-13T16:27:18.126Z] Stop (8 ms): Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[2026-07-13T16:27:18.126Z] Start: Run in container:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[2026-07-13T16:27:18.139Z] Stop (13 ms): Run in container:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[2026-07-13T16:27:18.139Z] Start: Run in container: test -f '/var/devcontainer/.patchEtcEnvironmentMarker'
+[2026-07-13T16:27:18.143Z] 
+[2026-07-13T16:27:18.143Z] 
+[2026-07-13T16:27:18.143Z] Exit code 1
+[2026-07-13T16:27:18.143Z] Stop (4 ms): Run in container: test -f '/var/devcontainer/.patchEtcEnvironmentMarker'
+[2026-07-13T16:27:18.143Z] Start: Run in container: test ! -f '/var/devcontainer/.patchEtcEnvironmentMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcEnvironmentMarker' ; } 2> /dev/null
+[2026-07-13T16:27:18.159Z] 
+[2026-07-13T16:27:18.159Z] 
+[2026-07-13T16:27:18.159Z] Stop (16 ms): Run in container: test ! -f '/var/devcontainer/.patchEtcEnvironmentMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcEnvironmentMarker' ; } 2> /dev/null
+[2026-07-13T16:27:18.159Z] Start: Run in container: cat >> /etc/environment <<'etcEnvironmentEOF'
+[2026-07-13T16:27:18.177Z] 
+[2026-07-13T16:27:18.177Z] 
+[2026-07-13T16:27:18.177Z] Stop (18 ms): Run in container: cat >> /etc/environment <<'etcEnvironmentEOF'
+[2026-07-13T16:27:18.177Z] Start: Run in container: test -f '/var/devcontainer/.patchEtcProfileMarker'
+[2026-07-13T16:27:18.180Z] 
+[2026-07-13T16:27:18.180Z] 
+[2026-07-13T16:27:18.180Z] Exit code 1
+[2026-07-13T16:27:18.180Z] Stop (3 ms): Run in container: test -f '/var/devcontainer/.patchEtcProfileMarker'
+[2026-07-13T16:27:18.180Z] Start: Run in container: test ! -f '/var/devcontainer/.patchEtcProfileMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcProfileMarker' ; } 2> /dev/null
+[2026-07-13T16:27:18.188Z] 
+[2026-07-13T16:27:18.188Z] 
+[2026-07-13T16:27:18.188Z] Stop (8 ms): Run in container: test ! -f '/var/devcontainer/.patchEtcProfileMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcProfileMarker' ; } 2> /dev/null
+[2026-07-13T16:27:18.188Z] Start: Run in container: sed -i -E 's/((^|\s)PATH=)([^\$]*)$/\1${PATH:-\3}/g' /etc/profile || true
+[2026-07-13T16:27:18.199Z] 
+[2026-07-13T16:27:18.199Z] 
+[2026-07-13T16:27:18.199Z] Stop (11 ms): Run in container: sed -i -E 's/((^|\s)PATH=)([^\$]*)$/\1${PATH:-\3}/g' /etc/profile || true
+[2026-07-13T16:27:18.199Z] Stop (30723 ms): Resolving Remote
+[2026-07-13T16:27:18.227Z] Stop (34954 ms): Run: C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\Code.exe c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.465.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-fcb5db21-7105-4aef-840c-25d213c162121783959435368 --workspace-folder d:\S4\webdynamique\Framework\MyFramework --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\MyFramework --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\MyFramework\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 219 --terminal-rows 21 --include-configuration --include-merged-configuration
+[2026-07-13T16:27:18.231Z] Start: Run: docker inspect --type container 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c
+[2026-07-13T16:27:18.325Z] Stop (94 ms): Run: docker inspect --type container 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c
+[2026-07-13T16:27:18.327Z] Start: Run: docker exec -i -u root 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c /bin/sh -c echo "New container started. Keep-alive process started." ; export VSCODE_REMOTE_CONTAINERS_SESSION=fcb5db21-7105-4aef-840c-25d213c162121783959435368 ; /bin/sh
+[2026-07-13T16:27:18.329Z] Start: Inspecting container
+[2026-07-13T16:27:18.331Z] Start: Run: docker inspect --type container 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c
+[2026-07-13T16:27:18.446Z] Stop (115 ms): Run: docker inspect --type container 4da995a15f33ae34f9713d35cfe0e915311b5c9c11d97e2d1eca1b0cfe9b688c
+[2026-07-13T16:27:18.448Z] Stop (119 ms): Inspecting container
+[2026-07-13T16:27:18.450Z] Start: Run in container: /bin/sh
+[2026-07-13T16:27:18.469Z] Start: Run in container: uname -m
+[2026-07-13T16:27:18.528Z] New container started. Keep-alive process started.
+[2026-07-13T16:27:18.692Z] x86_64
+[2026-07-13T16:27:18.693Z] 
+[2026-07-13T16:27:18.694Z] Stop (225 ms): Run in container: uname -m
+[2026-07-13T16:27:18.696Z] Start: Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[2026-07-13T16:27:18.701Z] PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+[2026-07-13T16:27:18.703Z] 
+[2026-07-13T16:27:18.706Z] Stop (10 ms): Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[2026-07-13T16:27:18.707Z] Start: Run in container:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[2026-07-13T16:27:18.713Z] Stop (6 ms): Run in container:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[2026-07-13T16:27:18.715Z] safe.directory: Looking up root folder for workspace folder '/app'.
+[2026-07-13T16:27:18.716Z] Start: Run in container: command -v git >/dev/null 2>&1 && ROOT_FOLDER="$(git -C '/app' rev-parse --show-toplevel)" && test "$(stat -c %u "$ROOT_FOLDER")" != "$(id -u)" && echo -n "$ROOT_FOLDER"
+[2026-07-13T16:27:18.724Z] 
+[2026-07-13T16:27:18.725Z] 
+[2026-07-13T16:27:18.727Z] Exit code 127
+[2026-07-13T16:27:18.728Z] Stop (12 ms): Run in container: command -v git >/dev/null 2>&1 && ROOT_FOLDER="$(git -C '/app' rev-parse --show-toplevel)" && test "$(stat -c %u "$ROOT_FOLDER")" != "$(id -u)" && echo -n "$ROOT_FOLDER"
+[2026-07-13T16:27:18.729Z] safe.directory: Checking host ownership of root folder at mount point '/app' skipped.
+[2026-07-13T16:27:18.731Z] Start: Updating configuration state
+[2026-07-13T16:27:18.746Z] Stop (15 ms): Updating configuration state
+[2026-07-13T16:27:18.747Z] Start: Run: docker compose version --short
+[2026-07-13T16:27:18.929Z] Stop (182 ms): Run: docker compose version --short
+[2026-07-13T16:27:18.930Z] Docker Compose version: 5.3.0
+[2026-07-13T16:27:18.933Z] Start: Setup shutdown monitor
+[2026-07-13T16:27:18.936Z] Forking shutdown monitor: c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.465.0\dist\shutdown\shutdownMonitorProcess \\.\pipe\vscode-rc-f04f2828-e009-45e7-8e94-818011b51c8a-sock dockerCompose Debug c:\Users\Admin\AppData\Roaming\Code\logs\20260713T190000\window1\exthost\ms-vscode-remote.remote-containers 1783959436595
+[2026-07-13T16:27:18.958Z] Stop (25 ms): Setup shutdown monitor
+[2026-07-13T16:27:18.960Z] Start: Run in container: test -d '/root/.vscode-server'
+[2026-07-13T16:27:18.966Z] 
+[2026-07-13T16:27:18.967Z] 
+[2026-07-13T16:27:18.969Z] Exit code 1
+[2026-07-13T16:27:18.972Z] Stop (12 ms): Run in container: test -d '/root/.vscode-server'
+[2026-07-13T16:27:18.974Z] Start: Run in container: test -d '/root/.vscode-remote'
+[2026-07-13T16:27:18.979Z] 
+[2026-07-13T16:27:18.980Z] 
+[2026-07-13T16:27:18.982Z] Exit code 1
+[2026-07-13T16:27:18.983Z] Stop (9 ms): Run in container: test -d '/root/.vscode-remote'
+[2026-07-13T16:27:18.984Z] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' ; } 2> /dev/null
+[2026-07-13T16:27:18.995Z] 
+[2026-07-13T16:27:18.997Z] 
+[2026-07-13T16:27:18.998Z] Stop (14 ms): Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' ; } 2> /dev/null
+[2026-07-13T16:27:18.999Z] Start: Run in container: test -f '/root/.vscode-server/data/Machine/settings.json'
+[2026-07-13T16:27:19.007Z] 
+[2026-07-13T16:27:19.009Z] 
+[2026-07-13T16:27:19.011Z] Exit code 1
+[2026-07-13T16:27:19.012Z] Stop (13 ms): Run in container: test -f '/root/.vscode-server/data/Machine/settings.json'
+[2026-07-13T16:27:19.014Z] Start: Run in container: which apt dpkg snap dnf yum rpm apk docker git gh kubectl podman curl wget ssh scp rsync gpg ps lsof netstat top tree find grep zip unzip tar gzip bzip2 xz || true
+[2026-07-13T16:27:19.031Z] Stop (17 ms): Run in container: which apt dpkg snap dnf yum rpm apk docker git gh kubectl podman curl wget ssh scp rsync gpg ps lsof netstat top tree find grep zip unzip tar gzip bzip2 xz || true
+[2026-07-13T16:27:19.032Z] Start: Run in container: mkdir -p '/root/.vscode-server/data/Machine' && cat >'/root/.vscode-server/data/Machine/settings.json' <<'settingsJSON'
+[2026-07-13T16:27:19.044Z] 
+[2026-07-13T16:27:19.045Z] 
+[2026-07-13T16:27:19.046Z] Stop (14 ms): Run in container: mkdir -p '/root/.vscode-server/data/Machine' && cat >'/root/.vscode-server/data/Machine/settings.json' <<'settingsJSON'
+[2026-07-13T16:27:19.048Z] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineMCPConfigMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineMCPConfigMarker' ; } 2> /dev/null
+[2026-07-13T16:27:19.056Z] 
+[2026-07-13T16:27:19.058Z] 
+[2026-07-13T16:27:19.059Z] Stop (11 ms): Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineMCPConfigMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineMCPConfigMarker' ; } 2> /dev/null
+[2026-07-13T16:27:19.060Z] Start: Run in container: test -f '/root/.vscode-server/data/User/mcp.json'
+[2026-07-13T16:27:19.065Z] 
+[2026-07-13T16:27:19.066Z] 
+[2026-07-13T16:27:19.067Z] Exit code 1
+[2026-07-13T16:27:19.069Z] Stop (9 ms): Run in container: test -f '/root/.vscode-server/data/User/mcp.json'
+[2026-07-13T16:27:19.073Z] Start: Run in container: test -d '/root/.vscode-server/bin/fc3def6774c76082adf699d366f31a557ce5573f'
+[2026-07-13T16:27:19.078Z] 
+[2026-07-13T16:27:19.079Z] 
+[2026-07-13T16:27:19.081Z] Exit code 1
+[2026-07-13T16:27:19.082Z] Stop (9 ms): Run in container: test -d '/root/.vscode-server/bin/fc3def6774c76082adf699d366f31a557ce5573f'
+[2026-07-13T16:27:19.083Z] Start: Run in container: test -d '/vscode/vscode-server/bin/linux-x64/fc3def6774c76082adf699d366f31a557ce5573f'
+[2026-07-13T16:27:19.092Z] 
+[2026-07-13T16:27:19.093Z] 
+[2026-07-13T16:27:19.095Z] Exit code 1
+[2026-07-13T16:27:19.096Z] Stop (13 ms): Run in container: test -d '/vscode/vscode-server/bin/linux-x64/fc3def6774c76082adf699d366f31a557ce5573f'
+[2026-07-13T16:27:19.097Z] Installing VS Code Server for commit fc3def6774c76082adf699d366f31a557ce5573f
+[2026-07-13T16:27:19.099Z] Start: Downloading VS Code Server
+[2026-07-13T16:27:19.100Z] fc3def6774c76082adf699d366f31a557ce5573f linux-x64 stable
+[2026-07-13T16:27:19.103Z] URL: https://update.code.visualstudio.com/commit:fc3def6774c76082adf699d366f31a557ce5573f/server-linux-x64/stable
+[2026-07-13T16:27:19.106Z] Path: C:\Users\Admin\AppData\Local\Temp\vsch\serverCache\fc3def6774c76082adf699d366f31a557ce5573f\vscode-server-linux-x64.tar.gz
+[2026-07-13T16:27:19.139Z] getaddrinfo ENOTFOUND update.code.visualstudio.com
+[2026-07-13T16:27:19.140Z] Retrying to download VS Code Server.
+[2026-07-13T16:27:22.140Z] Stop (3041 ms): Downloading VS Code Server
+[2026-07-13T16:27:22.163Z] TypeError: Failed to fetch
+    at j3o (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5140:51713)
+    at vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5140:53009
+    at GSt.logAndRequest (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:972:11058)
+    at GSt.request (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5140:52989)
+    at EFe.download (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:1972:57373)
+    at EHt.$download (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:1086:9357)
+    at a._doInvokeHandler (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5175:51744)
+    at a._invokeHandler (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5175:51490)
+    at a._receiveRequest (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5175:50271)
+    at a._receiveOneMessage (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5175:49105)
+    at hxe.value (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5175:47177)
+    at D._deliver (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:433:3268)
+    at D.fire (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:433:3587)
+    at FQ.fire (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:1076:9728)
+    at MessagePort.<anonymous> (vscode-file://vscode-app/c:/Users/Admin/AppData/Local/Programs/Microsoft%20VS%20Code/fc3def6774/resources/app/out/vs/workbench/workbench.desktop.main.js:5190:16692)

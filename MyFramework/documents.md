@@ -54,3 +54,10 @@ javac -cp "/usr/local/tomcat/lib/servlet-api.jar" -d bin $(find src -name "*.jav
 cd bin
 jar -cf mon-framework.jar src/
 ```
+
+
+## Ordre de lancement du DockerLaunch.sh pour l'instant en attente de connexion:
+```bash
+sed -i 's/\r$//' DockerLaunch.sh
+./DockerLaunch.sh
+```
