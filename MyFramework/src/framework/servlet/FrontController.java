@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet {
             return; 
         }
 
-        
+
         String httpMethod = request.getMethod().toUpperCase(); // <-- FORCE LE MAJUSCULE ICI
 
         // 🔍 LOGS DE DEBUGGING (Regarde ton terminal Docker quand tu lances l'URL !)
@@ -78,22 +78,24 @@ public class FrontController extends HttpServlet {
             // 2. INVOKE : On exécute la méthode et on récupère l'objet ModelView renvoyé
             Object result = methodToExecute.invoke(controllerInstance);
 
-            // 3. TRAITEMENT DU MODELVIEW (Nouveau pour le Sprint 5)
             if (result instanceof ModelView) {
                 ModelView mv = (ModelView) result;
+                mv.getData().forEach(request::setAttribute);
 
-                // On transfère chaque élément de notre Map [String, Object] vers les attributs de la requête HTTP
-                mv.getData().forEach((key, value) -> {
-                    request.setAttribute(key, value);
-                });
-
-                // Concaténation avec le préfixe et le suffixe demandés par ton procédé
-                String prefix = "/WEB-INF/jsp/";
-                String suffix = ".jsp";
-                String fullPath = prefix + mv.getUrl() + suffix; // Ex: /WEB-INF/jsp/liste-employes.jsp
-
-                // Redirection finale vers la page JSP
-                request.getRequestDispatcher(fullPath).forward(request, response);
+                String fullPath = "/WEB-INF/jsp/" + mv.getUrl() + ".jsp";
+                
+                // --- ON ESSAYE LE FORWARD ET ON CATCHE L'ERREUR ---
+                try {
+                    request.getRequestDispatcher(fullPath).forward(request, response);
+                } catch (Exception e) {
+                    response.setContentType("text/html;charset=UTF-8");
+                    PrintWriter out = response.getWriter();
+                    out.println("<h1>Erreur lors du forward vers la JSP</h1>");
+                    out.println("<p>Chemin : " + fullPath + "</p>");
+                    out.println("<pre>");
+                    e.printStackTrace(out); // AFFICHE L'ERREUR DANS LE NAVIGATEUR
+                    out.println("</pre>");
+                }
             } else {
                 response.setContentType("text/plain;charset=UTF-8");
                 response.getWriter().println("[Framework Error] La méthode du contrôleur n'a pas renvoyé un ModelView.");
