@@ -8,7 +8,6 @@ import java.util.List;
 @Controller
 public class EmpController {
 
-    
     // Simule une requête GET /emp/list
     @UrlMapping(value = "/emp/list", method = "GET") // Si ton annotation supporte l'attribut method
     public void list() {

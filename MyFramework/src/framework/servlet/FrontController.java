@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletContext;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,23 +44,26 @@ public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // 1. Récupération de l'URL et de la méthode HTTP de la requête
-        String urlInterceptee = request.getRequestURI().substring(request.getContextPath().length());
-        String httpMethod = request.getMethod(); // "GET", "POST", etc.
+        // 1. RÉCUPÉRATION DU CONTEXTE (Le "sac à dos" partagé par le Listener)
+        ServletContext context = getServletContext();
+        HashMap<Urlkey, Mapping> mappingUrls = (HashMap<Urlkey, Mapping>) context.getAttribute("mappingUrls");
+        Integer totalControllersFound = (Integer) context.getAttribute("totalControllersFound");
 
-        // 2. Création de la clé de recherche complexe (Sprint 3)
+        // 2. Préparation de la recherche
+        String urlInterceptee = request.getRequestURI().substring(request.getContextPath().length());
+        String httpMethod = request.getMethod(); 
         Urlkey lookupKey = new Urlkey(urlInterceptee, httpMethod);
 
-        // --- TABLEAU DE BORD (Si accès à la racine) ---
+        // 3. TABLEAU DE BORD (Si accès à la racine)[cite: 5]
         if (urlInterceptee.equals("/") || urlInterceptee.isEmpty()) {
             response.setContentType("text/plain;charset=UTF-8");
             PrintWriter out = response.getWriter();
             out.println("==================================================");
             out.println("          TABLEAU DE BORD DU FRAMEWORK            ");
             out.println("==================================================");
-            out.println("Nombre total de classes @Controller : " + totalControllersFound);
+            out.println("Nombre total de classes @Controller : " + (totalControllersFound != null ? totalControllersFound : 0));
             out.println("\n--- ROUTES CARTOGRAPHIÉES ---");
-            if (mappingUrls.isEmpty()) {
+            if (mappingUrls == null || mappingUrls.isEmpty()) {
                 out.println("Aucune route détectée.");
             } else {
                 mappingUrls.forEach((key, map) -> {
@@ -69,34 +73,42 @@ public class FrontController extends HttpServlet {
             return;
         }
 
-        // 3. Recherche du Mapping associé
-        Mapping mapping = mappingUrls.get(lookupKey);
-
-        if (mapping == null) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Aucun contrôleur trouvé pour l'URL " + urlInterceptee + " avec la méthode " + httpMethod);
+        // 4. RECHERCHE DU MAPPING[cite: 5]
+        if (mappingUrls == null || !mappingUrls.containsKey(lookupKey)) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Route introuvable : " + urlInterceptee);
             return;
         }
 
+        Mapping mapping = mappingUrls.get(lookupKey);
+
+        // 5. EXÉCUTION PAR RÉFLEXION[cite: 5, 12]
         try {
-            // 4. Instanciation et invocation dynamique par Réflexion (Sprint 3.2)
             Class<?> clazz = Class.forName(mapping.getClassname());
             Object controllerInstance = clazz.getDeclaredConstructor().newInstance();
-            
             java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodname());
             
-            // Exécution de la méthode
-            methodToExecute.invoke(controllerInstance);
+            // Appel de la méthode
+            Object result = methodToExecute.invoke(controllerInstance);
 
-            // Message de succès demandé dans la console
-            System.out.println("[SUCCESS] Méthode exécutée par réflexion : " + mapping.getMethodname() + " dans " + mapping.getClassname());
+            // 6. GESTION DU MODELVIEW (Sprint 5)[cite: 12]
+            if (result instanceof ModelView) {
+                ModelView mv = (ModelView) result;
+                
+                // Transfert des données dans la requête[cite: 12]
+                mv.getData().forEach((key, value) -> {
+                    request.setAttribute(key, value);
+                });
 
-            // Optionnel : un petit retour visuel pour le navigateur
-            response.setContentType("text/plain;charset=UTF-8");
-            response.getWriter().println("[Framework] Exécution réussie de la méthode : " + mapping.getMethodname() + "()");
+                // Redirection vers la JSP[cite: 12]
+                String path = "/WEB-INF/jsp/" + mv.getUrl() + ".jsp";
+                request.getRequestDispatcher(path).forward(request, response);
+            } else {
+                response.getWriter().println("La méthode a retourné un type non géré : " + result);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur lors de l'exécution : " + e.getMessage());
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur d'exécution : " + e.getMessage());
         }
     }
 
