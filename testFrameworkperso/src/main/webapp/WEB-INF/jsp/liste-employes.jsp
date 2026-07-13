@@ -1,27 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List" %>
 <html>
-<head>
-    <title>ITU Framework - Liste</title>
-</head>
 <body>
-    <h1>Tableau des Employés (Données Transmises)</h1>
-    
+    <h2>Liste des Employés</h2>
     <ul>
-        <%
-            // Récupération de l'attribut poussé par le dispatcher du FrontController
-            List<String> maliste = (List<String>) request.getAttribute("liste");
-            
-            if (maliste != null) {
-                for (String emp : maliste) {
-        %>
-                    <li><%= emp %></li>
-        <%
+        <% 
+            // Attention : getAttribute retourne un Object, il faut caster
+            Object obj = request.getAttribute("liste"); 
+            if (obj != null) {
+                java.util.List<String> list = (java.util.List<String>) obj;
+                for (String emp : list) {
+                    out.println("<li>" + emp + "</li>");
                 }
             } else {
-        %>
-                <p>Aucune donnée reçue dans la requête.</p>
-        <%
+                out.println("<li>Aucune donnée trouvée dans la requête !</li>");
             }
         %>
     </ul>

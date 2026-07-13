@@ -21,6 +21,11 @@ public class FrontController extends HttpServlet {
         int totalControllersFound = (int) getServletContext().getAttribute("totalControllersFound");
 
         String urlInterceptee = request.getRequestURI().substring(request.getContextPath().length());
+        if (urlInterceptee.startsWith("/WEB-INF/jsp/")) {
+            return; 
+        }
+
+        
         String httpMethod = request.getMethod().toUpperCase(); // <-- FORCE LE MAJUSCULE ICI
 
         // 🔍 LOGS DE DEBUGGING (Regarde ton terminal Docker quand tu lances l'URL !)
