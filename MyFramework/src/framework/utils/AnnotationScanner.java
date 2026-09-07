@@ -1,7 +1,7 @@
-package src.framework.utils;
+package utils;
 
-import src.framework.model.*;
-import src.framework.annotation.*;
+import model.*;
+import annotation.*;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;

@@ -1,6 +1,6 @@
-package src.framework.servlet;
+package servlet;
 
-import src.framework.model.*;
+import model.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,29 +12,24 @@ import java.util.HashMap;
 public class FrontController extends HttpServlet {
 
     // PLUS D'INIT ICI ! Le démarrage est géré par le Listener.
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // 1. On récupère la Map déjà scannée et stockée par le Listener au démarrage
+        // 1. Récupération des données partagées
         HashMap<Urlkey, Mapping> mappingUrls = (HashMap<Urlkey, Mapping>) getServletContext().getAttribute("mappingUrls");
         int totalControllersFound = (int) getServletContext().getAttribute("totalControllersFound");
 
         String urlInterceptee = request.getRequestURI().substring(request.getContextPath().length());
+        
+        // Protection contre l'accès direct aux JSP
         if (urlInterceptee.startsWith("/WEB-INF/jsp/")) {
             return; 
         }
 
-
-        String httpMethod = request.getMethod().toUpperCase(); // <-- FORCE LE MAJUSCULE ICI
-
-        // 🔍 LOGS DE DEBUGGING (Regarde ton terminal Docker quand tu lances l'URL !)
-        System.out.println("[DEBUG FRAMEWORK] URL demandée : " + urlInterceptee);
-        System.out.println("[DEBUG FRAMEWORK] Méthode HTTP : " + httpMethod);
-
+        String httpMethod = request.getMethod().toUpperCase();
         Urlkey lookupKey = new Urlkey(urlInterceptee, httpMethod);
 
-        // --- DASHBOARD SI ROOT ---
+        // 2. Dashboard pour la racine
         if (urlInterceptee.equals("/") || urlInterceptee.isEmpty()) {
             response.setContentType("text/plain;charset=UTF-8");
             PrintWriter out = response.getWriter();
@@ -47,65 +42,68 @@ public class FrontController extends HttpServlet {
                 out.println("Aucune route détectée.");
             } else {
                 mappingUrls.forEach((key, map) -> {
-                    out.println("[" + key.getMethod() + "] " + key.getUrl() + " --> " + map.getClassname() + " --> " + map.getMethodname() + "()");
+                    out.println("[" + key.getMethod() + "] " + key.getUrl() + " --> " + map.getClassname() + " --> " + map.getMethodName() + "()");
                 });
             }
             return;
         }
 
-        // 2. Recherche et exécution par Réflexion (invoke)
-        Mapping mapping = null;
-        
-        // Si mappingUrls n'est pas null, on cherche la clé
-        if (mappingUrls != null) {
-            mapping = mappingUrls.get(lookupKey);
-        }
-
+        // 3. Recherche du mapping
+        Mapping mapping = (mappingUrls != null) ? mappingUrls.get(lookupKey) : null;
         if (mapping == null) {
-            System.out.println("[DEBUG FRAMEWORK] Route non trouvée dans la Map pour : [" + httpMethod + "] " + urlInterceptee);
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Route introuvable.");
             return;
         }
         
-        System.out.println("[DEBUG FRAMEWORK] Route TROUVÉE ! Classe : " + mapping.getClassname() + ", Méthode : " + mapping.getMethodname());
-
         try {
-            // 1. Récupération de l'instance (via le sac à dos ou une nouvelle instance selon ton code actuel)
+            // 4. Exécution par réflexion
             Class<?> clazz = Class.forName(mapping.getClassname());
             Object controllerInstance = clazz.getDeclaredConstructor().newInstance();
-            java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodname());
-            
-            // 2. INVOKE : On exécute la méthode et on récupère l'objet ModelView renvoyé
+            java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName());
             Object result = methodToExecute.invoke(controllerInstance);
 
+            // 5. Traitement du ModelView
             if (result instanceof ModelView) {
-                ModelView mv = (ModelView) result;
-                mv.getData().forEach(request::setAttribute);
+            ModelView mv = (ModelView) result;
+            mv.getData().forEach(request::setAttribute);
 
-                String fullPath = "/WEB-INF/jsp/" + mv.getUrl() + ".jsp";
-                
-                // --- ON ESSAYE LE FORWARD ET ON CATCHE L'ERREUR ---
-                try {
-                    request.getRequestDispatcher(fullPath).forward(request, response);
-                } catch (Exception e) {
-                    response.setContentType("text/html;charset=UTF-8");
-                    PrintWriter out = response.getWriter();
-                    out.println("<h1>Erreur lors du forward vers la JSP</h1>");
-                    out.println("<p>Chemin : " + fullPath + "</p>");
-                    out.println("<pre>");
-                    e.printStackTrace(out); // AFFICHE L'ERREUR DANS LE NAVIGATEUR
-                    out.println("</pre>");
-                }
-            } else {
-                response.setContentType("text/plain;charset=UTF-8");
-                response.getWriter().println("[Framework Error] La méthode du contrôleur n'a pas renvoyé un ModelView.");
+            if (mv.getUrl() == null || mv.getUrl().trim().isEmpty()) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Vue non définie.");
+                return;
             }
 
+            String viewName = mv.getUrl().trim();
+            
+            if (viewName.endsWith(".jsp")) {
+                viewName = viewName.substring(0, viewName.length() - 4);
+            }
+            
+            String fullPath = "/WEB-INF/jsp/" + viewName + ".jsp";
+            var dispatcher = request.getRequestDispatcher(fullPath);
+
+            if (dispatcher != null) {
+                System.out.println("[DEBUG] Forward classique vers : " + fullPath);
+                dispatcher.forward(request, response);
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND, "Vue introuvable : " + fullPath);
+            }
+
+            jakarta.servlet.RequestDispatcher rd = getServletContext().getNamedDispatcher("jsp");
+            
+            if (rd != null) {
+                rd.forward(request, response);
+            } else {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Moteur JSP non configuré.");
+            }
+        } else {
+                response.getWriter().println("[Framework Error] La méthode n'a pas renvoyé un ModelView.");
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur d'exécution : " + e.getMessage());
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur : " + e.getMessage());
         }
     }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

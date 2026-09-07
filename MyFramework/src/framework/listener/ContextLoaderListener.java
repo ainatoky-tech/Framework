@@ -1,8 +1,8 @@
-package src.framework.listener;
+package listener;
 
-import src.framework.model.Urlkey;
-import src.framework.model.Mapping;
-import src.framework.utils.AnnotationScanner;
+import model.Urlkey;
+import model.Mapping;
+import utils.AnnotationScanner;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;

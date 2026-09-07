@@ -1,5 +1,4 @@
 #!/bin/bash
-
 APP_NAME="TestFramework"
 SRC_DIRECTORY="src/main/java"
 WEB_DIRECTORY="src/main/webapp"
@@ -22,6 +21,7 @@ WEBINF_LIB="$WEB_DIRECTORY/WEB-INF/lib"
         done
     fi
 
+    set -e # arrêt immédiat du script en cas d'erreur
     echo "[1/4] Compilation des classes Java..."
     mkdir -p $BUILD_DIRECTORY/WEB-INF/classes
 
@@ -40,6 +40,7 @@ WEBINF_LIB="$WEB_DIRECTORY/WEB-INF/lib"
     cd $BUILD_DIRECTORY || exit
     jar -cf ../$APP_NAME.war *
     cd ..
+
 
     echo "[4/4] Déploiement et redémarrage de Tomcat..."
     cp -f $APP_NAME.war $TOMCAT_WEBAPPS/

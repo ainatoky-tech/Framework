@@ -2,5 +2,8 @@
 <html>
 <body>
     <h1 style="color: blue;">Succès : La JSP est affichée !</h1>
+    <script>
+        console.log("hello")
+    </script>
 </body>
 </html>

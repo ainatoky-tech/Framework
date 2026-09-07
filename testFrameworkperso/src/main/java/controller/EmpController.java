@@ -37,14 +37,20 @@ public class EmpController {
         ModelView mv = new ModelView("liste-employes");
 
         // Simulation des données en dur (Sprint 5)
-        List<String> employes = new ArrayList<>();
+        /*List<String> employes = new ArrayList<>();
         employes.add("Rakoto (Dev Java)");
         employes.add("Rabe (Docker Expert)");
         employes.add("Rasoa (Architecte)");
 
         // On insère notre liste dans la Map de données du ModelView
-        mv.addItem("liste", employes);
+        mv.addItem("liste", employes);*/
 
+        return mv;
+    }
+
+    @UrlMapping(value = "/test", method = "GET")
+    public ModelView test(){
+        ModelView mv = new ModelView("index");
         return mv;
     }
 }

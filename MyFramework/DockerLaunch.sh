@@ -4,6 +4,8 @@ TEST_FRAMEWORK_PERSO="../testFrameworkPerso"
 LIB_TEST_FRAMEWORK_PERSO="src/main/webapp/WEB-INF/lib"
 MON_FRAMEWORK="mon-framework.jar"
 
+rm -rf bin
+mkdir -p bin
 
 echo "===== lancement de la création du jar pour docker ====="
 {
@@ -14,7 +16,10 @@ echo "===== lancement de la création du jar pour docker ====="
         rm "$MON_FRAMEWORK"
         echo "ancien $MON_FRAMEWORK détecter et supprimer avec succes"
     fi
+
+    echo "compilation des classes java"
     javac -cp "/usr/local/tomcat/lib/servlet-api.jar" -d bin $(find src -name "*.java")
+
 
     echo "====.Jarisation===="
     cd bin

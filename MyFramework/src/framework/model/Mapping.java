@@ -1,4 +1,4 @@
-package src.framework.model;
+package model;
 
 public class Mapping {
     private final String classname;
@@ -9,5 +9,5 @@ public class Mapping {
         this.methodName= methodName;
     }
     public String getClassname(){return classname;}
-    public String getMethodname(){return methodName;}
+    public String getMethodName(){return methodName;}
 }
