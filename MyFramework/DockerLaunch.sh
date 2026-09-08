@@ -39,6 +39,7 @@ echo "===== lancement de la création du jar pour docker ====="
             echo "Ancien JAR supprimé."
         fi
         cp "$CHEMIN_JAR_SOURCE" .
+        chmod 711 "$MON_FRAMEWORK"
         echo "nouveau jar mis en place projet prêt a être déployer"
     fi
 

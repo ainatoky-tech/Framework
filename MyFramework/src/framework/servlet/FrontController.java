@@ -23,8 +23,9 @@ public class FrontController extends HttpServlet {
         
         // Protection contre l'accès direct aux JSP
         if (urlInterceptee.startsWith("/WEB-INF/jsp/")) {
+            getServletContext().getNamedDispatcher("jsp").forward(request, response);
             return; 
-        }
+        }   
 
         String httpMethod = request.getMethod().toUpperCase();
         Urlkey lookupKey = new Urlkey(urlInterceptee, httpMethod);
@@ -63,39 +64,35 @@ public class FrontController extends HttpServlet {
             Object result = methodToExecute.invoke(controllerInstance);
 
             // 5. Traitement du ModelView
+            // 5. Traitement du ModelView
             if (result instanceof ModelView) {
-            ModelView mv = (ModelView) result;
-            mv.getData().forEach(request::setAttribute);
+                ModelView mv = (ModelView) result;
+                
+                // Injection des données dans la requête
+                mv.getData().forEach(request::setAttribute);
 
-            if (mv.getUrl() == null || mv.getUrl().trim().isEmpty()) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Vue non définie.");
-                return;
-            }
+                if (mv.getUrl() == null || mv.getUrl().trim().isEmpty()) {
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Vue non définie.");
+                    return;
+                }
 
-            String viewName = mv.getUrl().trim();
-            
-            if (viewName.endsWith(".jsp")) {
-                viewName = viewName.substring(0, viewName.length() - 4);
-            }
-            
-            String fullPath = "/WEB-INF/jsp/" + viewName + ".jsp";
-            var dispatcher = request.getRequestDispatcher(fullPath);
+                String viewName = mv.getUrl().trim();
+                if (viewName.endsWith(".jsp")) {
+                    viewName = viewName.substring(0, viewName.length() - 4);
+                }
+                
+                String fullPath = "/WEB-INF/jsp/" + viewName + ".jsp";
+                var dispatcher = request.getRequestDispatcher(fullPath);
 
-            if (dispatcher != null) {
-                System.out.println("[DEBUG] Forward classique vers : " + fullPath);
-                dispatcher.forward(request, response);
+                if (dispatcher != null) {
+                    System.out.println("[DEBUG] Forward vers : " + fullPath);
+                    dispatcher.forward(request, response);
+                    return; 
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND, "Vue introuvable : " + fullPath);
+                    return;
+                }
             } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND, "Vue introuvable : " + fullPath);
-            }
-
-            jakarta.servlet.RequestDispatcher rd = getServletContext().getNamedDispatcher("jsp");
-            
-            if (rd != null) {
-                rd.forward(request, response);
-            } else {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Moteur JSP non configuré.");
-            }
-        } else {
                 response.getWriter().println("[Framework Error] La méthode n'a pas renvoyé un ModelView.");
             }
         } catch (Exception e) {

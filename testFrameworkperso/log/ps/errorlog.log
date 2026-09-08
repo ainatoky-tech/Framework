@@ -1,0 +1,136 @@
+[2026-09-08T10:38:02.130Z] Dev Containers 0.468.0 in VS Code 1.136.1 (a44adf7f53e00964ab890f9f8758a334f1fc15bc).
+[2026-09-08T10:38:02.130Z] Start: Resolving Remote
+[2026-09-08T10:38:02.160Z] Setting up container for folder or workspace: d:\S4\webdynamique\Framework\testFrameworkperso
+[2026-09-08T10:38:02.161Z] Context: desktop-linux
+[2026-09-08T10:38:02.167Z] Start: Run: wsl -l -v
+[2026-09-08T10:38:02.265Z] Stop (98 ms): Run: wsl -l -v
+[2026-09-08T10:38:02.267Z] Start: Run: wsl -d Ubuntu-24.04 -e /bin/sh -c echo ~
+[2026-09-08T10:38:02.443Z] Stop (176 ms): Run: wsl -d Ubuntu-24.04 -e /bin/sh -c echo ~
+[2026-09-08T10:38:02.446Z] Start: Run: wsl -d Ubuntu-24.04 -e /bin/sh -c cd '/home/toky' && /bin/sh
+[2026-09-08T10:38:02.457Z] Start: Run in host: id -un
+[2026-09-08T10:38:02.570Z] toky
+[2026-09-08T10:38:02.571Z] 
+[2026-09-08T10:38:02.573Z] Stop (116 ms): Run in host: id -un
+[2026-09-08T10:38:02.575Z] Start: Run in host:  (command -v getent >/dev/null 2>&1 && getent passwd 'toky' || grep -E '^toky|^[^:]*:[^:]*:toky:' /etc/passwd || true)
+[2026-09-08T10:38:02.581Z] Stop (6 ms): Run in host:  (command -v getent >/dev/null 2>&1 && getent passwd 'toky' || grep -E '^toky|^[^:]*:[^:]*:toky:' /etc/passwd || true)
+[2026-09-08T10:38:02.583Z] Start: Run in host: echo ~
+[2026-09-08T10:38:02.588Z] /home/toky
+[2026-09-08T10:38:02.590Z] 
+[2026-09-08T10:38:02.592Z] Stop (9 ms): Run in host: echo ~
+[2026-09-08T10:38:02.594Z] Start: Run in host: test -f '/home/toky/.vscode-server/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/node'
+[2026-09-08T10:38:02.597Z] 
+[2026-09-08T10:38:02.599Z] 
+[2026-09-08T10:38:02.600Z] Exit code 1
+[2026-09-08T10:38:02.602Z] Stop (8 ms): Run in host: test -f '/home/toky/.vscode-server/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/node'
+[2026-09-08T10:38:02.605Z] Start: Run in host: test -f '/home/toky/.vscode/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/node'
+[2026-09-08T10:38:02.611Z] 
+[2026-09-08T10:38:02.613Z] 
+[2026-09-08T10:38:02.614Z] Exit code 1
+[2026-09-08T10:38:02.616Z] Stop (11 ms): Run in host: test -f '/home/toky/.vscode/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/node'
+[2026-09-08T10:38:02.618Z] Start: Run in host: test -f '/home/toky/.vscode-server/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node'
+[2026-09-08T10:38:02.623Z] 
+[2026-09-08T10:38:02.627Z] 
+[2026-09-08T10:38:02.629Z] Exit code 1
+[2026-09-08T10:38:02.631Z] Stop (13 ms): Run in host: test -f '/home/toky/.vscode-server/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node'
+[2026-09-08T10:38:02.632Z] Start: Run in host: test -f '/home/toky/.vscode-remote-containers/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node'
+[2026-09-08T10:38:02.637Z] 
+[2026-09-08T10:38:02.640Z] 
+[2026-09-08T10:38:02.642Z] Stop (10 ms): Run in host: test -f '/home/toky/.vscode-remote-containers/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node'
+[2026-09-08T10:38:02.644Z] Start: Run in host: test -f '/home/toky/.vscode-remote-containers/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node_modules/node-pty/package.json'
+[2026-09-08T10:38:02.648Z] 
+[2026-09-08T10:38:02.649Z] 
+[2026-09-08T10:38:02.651Z] Stop (7 ms): Run in host: test -f '/home/toky/.vscode-remote-containers/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node_modules/node-pty/package.json'
+[2026-09-08T10:38:02.652Z] Start: Run in host: test -f '/home/toky/.vscode-remote-containers/dist/vscode-remote-containers-server-0.468.0.js'
+[2026-09-08T10:38:02.657Z] 
+[2026-09-08T10:38:02.659Z] 
+[2026-09-08T10:38:02.660Z] Stop (8 ms): Run in host: test -f '/home/toky/.vscode-remote-containers/dist/vscode-remote-containers-server-0.468.0.js'
+[2026-09-08T10:38:02.664Z] userEnvProbe: loginInteractiveShell (default)
+[2026-09-08T10:38:02.666Z] userEnvProbe: not found in cache
+[2026-09-08T10:38:02.668Z] userEnvProbe shell: /bin/bash
+[2026-09-08T10:38:03.682Z] userEnvProbe PATHs:
+Probe:     '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/Docker/host/bin:/mnt/c/Users/Admin/.local/bin:/mnt/c/Users/Admin/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Admin/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Admin/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Admin/AppData/Local/Microsoft/WinGet/Packages/zyedidia.micro_Microsoft.Winget.Source_8wekyb3d8bbwe/micro-2.0.15:/snap/bin'
+Container: None
+[2026-09-08T10:38:03.778Z] Start: Run in Host: wslpath -w /run/user/1000/wayland-0
+[2026-09-08T10:38:03.797Z] Stop (19 ms): Run in Host: wslpath -w /run/user/1000/wayland-0
+[2026-09-08T10:38:03.812Z] Start: Check Docker is running
+[2026-09-08T10:38:03.814Z] Start: Run: docker version
+[2026-09-08T10:38:04.084Z] Client:
+ Version:           29.7.2
+ API version:       1.55
+ Go version:        go1.26.5
+ Git commit:        a7dcaa6
+ Built:             Wed Aug  5 18:31:33 2026
+[2026-09-08T10:38:04.088Z] 
+ OS/Arch:           windows/amd64
+ Context:           desktop-linux
+
+[2026-09-08T10:38:04.093Z] Server: Docker Desktop 4.89.0 (238018)
+ Engine:
+  Version:          29.7.2
+  API version:      1.55 (minimum version 1.40)
+  Go version:       go1.26.5
+  Git commit:       6a43e3d
+  Built:            Wed Aug  5 18:28:36 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.3
+  GitCommit:        aad11006b869517fcd3009450b6f82da282e1a9b
+ runc:
+  Version:          1.4.3
+  GitCommit:        v1.4.3-0-gbb14dabe
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[2026-09-08T10:38:04.108Z] Stop (294 ms): Run: docker version
+[2026-09-08T10:38:04.110Z] Stop (298 ms): Check Docker is running
+[2026-09-08T10:38:04.112Z] Start: Run: docker volume ls -q
+[2026-09-08T10:38:04.310Z] Stop (198 ms): Run: docker volume ls -q
+[2026-09-08T10:38:04.313Z] Start: Run: docker ps -q -a --filter label=vsch.local.folder=d:\S4\webdynamique\Framework\testFrameworkperso --filter label=vsch.quality=stable
+[2026-09-08T10:38:04.489Z] Stop (176 ms): Run: docker ps -q -a --filter label=vsch.local.folder=d:\S4\webdynamique\Framework\testFrameworkperso --filter label=vsch.quality=stable
+[2026-09-08T10:38:04.492Z] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso --filter label=devcontainer.config_file=d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json
+[2026-09-08T10:38:04.613Z] Stop (121 ms): Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso --filter label=devcontainer.config_file=d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json
+[2026-09-08T10:38:04.615Z] Start: Run: docker inspect --type container c05b3c3c44a6
+[2026-09-08T10:38:04.904Z] Stop (289 ms): Run: docker inspect --type container c05b3c3c44a6
+[2026-09-08T10:38:04.907Z] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso
+[2026-09-08T10:38:05.049Z] Stop (142 ms): Run: docker ps -q -a --filter label=devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso
+[2026-09-08T10:38:05.054Z] Start: Run: docker inspect --type container c05b3c3c44a6
+[2026-09-08T10:38:05.172Z] Stop (118 ms): Run: docker inspect --type container c05b3c3c44a6
+[2026-09-08T10:38:05.175Z] Running Dev Containers CLI:   up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-24c0f4c3-08d9-496f-bcbe-6d902ae616c71788863880798 --workspace-folder d:\S4\webdynamique\Framework\testFrameworkperso --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --mount type=bind,source=\\wsl.localhost\Ubuntu-24.04\mnt\wslg\runtime-dir\wayland-0,target=/tmp/vscode-wayland-7a71d54d-59b5-4e41-8799-e9b50e99e5eb.sock --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 218 --terminal-rows 18 --include-configuration --include-merged-configuration
+[2026-09-08T10:38:05.189Z] ProxyResolver#loadSystemCertificates count (12ms)
+[2026-09-08T10:38:05.192Z] ProxyResolver#filterExpiredCertificates count filtered
+[2026-09-08T10:38:05.196Z] Start: Run: C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\Code.exe c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-24c0f4c3-08d9-496f-bcbe-6d902ae616c71788863880798 --workspace-folder d:\S4\webdynamique\Framework\testFrameworkperso --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --mount type=bind,source=\\wsl.localhost\Ubuntu-24.04\mnt\wslg\runtime-dir\wayland-0,target=/tmp/vscode-wayland-7a71d54d-59b5-4e41-8799-e9b50e99e5eb.sock --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 218 --terminal-rows 18 --include-configuration --include-merged-configuration
+[2026-09-08T10:38:05.494Z] @devcontainers/cli 0.89.0. Node.js v24.18.1. win32 10.0.26200 x64.
+[2026-09-08T10:38:05.494Z] Start: Run: docker buildx version
+[2026-09-08T10:38:06.413Z] Stop (919 ms): Run: docker buildx version
+[2026-09-08T10:38:06.414Z] github.com/docker/buildx v0.36.1-desktop.1 83d819cf8237b52ef45a2a9857eeb83a7b10977f
+[2026-09-08T10:38:06.414Z] 
+[2026-09-08T10:38:06.414Z] Start: Run: docker -v
+[2026-09-08T10:38:06.509Z] Stop (95 ms): Run: docker -v
+[2026-09-08T10:38:06.509Z] Start: Run: docker version --format {{.Server.Version}}
+[2026-09-08T10:38:06.659Z] Stop (150 ms): Run: docker version --format {{.Server.Version}}
+[2026-09-08T10:38:06.659Z] 29.7.2
+[2026-09-08T10:38:06.660Z] 
+[2026-09-08T10:38:06.660Z] Start: Resolving Remote
+[2026-09-08T10:38:06.667Z] Start: Run: docker compose version --short
+[2026-09-08T10:38:07.192Z] Stop (525 ms): Run: docker compose version --short
+[2026-09-08T10:38:07.192Z] Docker Compose version: 5.5.0
+[2026-09-08T10:38:07.192Z] Start: Run: docker compose -f d:\S4\webdynamique\Framework\testFrameworkperso\docker-compose.yml --profile * config
+[2026-09-08T10:38:07.527Z] Stop (335 ms): Run: docker compose -f d:\S4\webdynamique\Framework\testFrameworkperso\docker-compose.yml --profile * config
+[2026-09-08T10:38:07.527Z] 
+[2026-09-08T10:38:07.527Z] services.testframework.environment.[0]: unexpected type map[string]interface {}
+
+[2026-09-08T10:38:07.527Z] Exit code 1
+[2026-09-08T10:38:07.533Z] Error: Command failed: docker compose -f d:\S4\webdynamique\Framework\testFrameworkperso\docker-compose.yml --profile * config
+[2026-09-08T10:38:07.535Z]     at Qg (c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:467:889)
+[2026-09-08T10:38:07.537Z]     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[2026-09-08T10:38:07.539Z]     at async AW (c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:414:3586)
+[2026-09-08T10:38:07.541Z]     at async kW (c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:488:4862)
+[2026-09-08T10:38:07.542Z]     at async hI (c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:488:5808)
+[2026-09-08T10:38:07.543Z]     at async C9 (c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:669:206)
+[2026-09-08T10:38:07.544Z]     at async I9 (c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:668:16607)
+[2026-09-08T10:38:07.546Z]     at async c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js:488:1917
+[2026-09-08T10:38:07.548Z] Stop (2352 ms): Run: C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\Code.exe c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-24c0f4c3-08d9-496f-bcbe-6d902ae616c71788863880798 --workspace-folder d:\S4\webdynamique\Framework\testFrameworkperso --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --mount type=bind,source=\\wsl.localhost\Ubuntu-24.04\mnt\wslg\runtime-dir\wayland-0,target=/tmp/vscode-wayland-7a71d54d-59b5-4e41-8799-e9b50e99e5eb.sock --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 218 --terminal-rows 18 --include-configuration --include-merged-configuration
+[2026-09-08T10:38:07.549Z] Exit code 1
+[2026-09-08T10:38:07.557Z] Command failed: C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\Code.exe c:\Users\Admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.468.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-24c0f4c3-08d9-496f-bcbe-6d902ae616c71788863880798 --workspace-folder d:\S4\webdynamique\Framework\testFrameworkperso --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=d:\S4\webdynamique\Framework\testFrameworkperso --id-label devcontainer.config_file=d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --log-level debug --log-format json --config d:\S4\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --mount type=bind,source=\\wsl.localhost\Ubuntu-24.04\mnt\wslg\runtime-dir\wayland-0,target=/tmp/vscode-wayland-7a71d54d-59b5-4e41-8799-e9b50e99e5eb.sock --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 218 --terminal-rows 18 --include-configuration --include-merged-configuration
+[2026-09-08T10:38:07.558Z] Exit code 1

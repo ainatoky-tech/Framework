@@ -1,9 +1,9 @@
-package src.main.java.controller;
+package controller;
 
 // On importe l'annotation qui est cachée dans ton fichier .jar
-import src.framework.annotation.Controller;
-import src.framework.annotation.UrlMapping;
-import src.framework.model.ModelView;
+import annotation.Controller;
+import annotation.UrlMapping;
+import model.ModelView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,17 +33,16 @@ public class EmpController {
 
     @UrlMapping(value = "/emp/list", method = "GET")
     public ModelView list() {
-        // On indique qu'on veut appeler la vue "liste-employes"
         ModelView mv = new ModelView("liste-employes");
 
-        // Simulation des données en dur (Sprint 5)
-        /*List<String> employes = new ArrayList<>();
+        // Simulation des données en mémoire
+        List<String> employes = new ArrayList<>();
         employes.add("Rakoto (Dev Java)");
         employes.add("Rabe (Docker Expert)");
         employes.add("Rasoa (Architecte)");
 
-        // On insère notre liste dans la Map de données du ModelView
-        mv.addItem("liste", employes);*/
+        // Injection dans le ModelView sous la clé "liste"
+        mv.addItem("liste", employes);
 
         return mv;
     }
@@ -51,6 +50,12 @@ public class EmpController {
     @UrlMapping(value = "/test", method = "GET")
     public ModelView test(){
         ModelView mv = new ModelView("index");
+        return mv;
+    }
+
+    @UrlMapping(value = "test/controller/list", method = "GET")
+    public ModelView liste(){
+        ModelView mv = new ModelView("liste-employes");
         return mv;
     }
 }

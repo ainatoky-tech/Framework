@@ -1,7 +1,7 @@
-package src.main.java.controller;
+package controller;
 
-import src.framework.annotation.Controller;
-import src.framework.annotation.UrlMapping;
+import annotation.Controller;
+import annotation.UrlMapping;
 
 @Controller
 public class TestController {
