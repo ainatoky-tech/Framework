@@ -8,6 +8,8 @@ import service.UserService;
 import model.UserModel;
 
 import java.util.List;
+import java.util.ArrayList;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,10 +43,8 @@ public class EmpController {
 
     @UrlMapping(value = "/emp/list", method = "GET")
     public ModelView list() {
-        ModelView mv = new ModelView("liste-employes");
+        ModelView mv = new ModelView("liste-employes2");
 
-        // Simulation des données en mémoire
-        //List<String> employes = new ArrayList<>();
         List<UserModel> employes = userService.getAllUser();
 
         // Injection dans le ModelView sous la clé "liste"
@@ -62,6 +62,13 @@ public class EmpController {
     @UrlMapping(value = "test/controller/list", method = "GET")
     public ModelView liste(){
         ModelView mv = new ModelView("liste-employes");
+        // Simulation des données en mémoire
+        List<String> employes = new ArrayList<>();
+        employes.add("Alice");
+        employes.add("Bob");
+        employes.add("Charlie");
+
+        mv.addItem("liste", employes);
         return mv;
     }
 }

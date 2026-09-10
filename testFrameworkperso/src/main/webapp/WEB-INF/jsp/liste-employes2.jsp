@@ -1,6 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ List<String> employes = (List<String>) request.getAttribute("liste"); %>
+<%@ page import="model.UserModel" %>
+
+<% 
+    // Récupération de la liste des employés transmise par le contrôleur
+    List<UserModel> employes = (List<UserModel>) request.getAttribute("employeListe");
+%>
+
 <html>
 <head>
     <title>Liste des employés</title>
@@ -9,12 +15,13 @@
     <h1 style="color: #2c3e50;">Liste des Employés</h1>
 
     <script>
-        console.log("hello")
+        console.log("hello");
     </script>
+
     <ul>
     <% 
         if (employes != null && !employes.isEmpty()) {
-            for (String emp : employes) {
+            for (UserModel emp : employes) {
     %>
                 <li><%= emp %></li>
     <% 
@@ -28,5 +35,3 @@
     </ul>
 </body>
 </html>
-
-    

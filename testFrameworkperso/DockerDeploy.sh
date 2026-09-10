@@ -36,6 +36,12 @@ WEBINF_LIB="$WEB_DIRECTORY/WEB-INF/lib"
     echo "[2/4] Préparation des fichiers Web..."
     cp -r $WEB_DIRECTORY/* $BUILD_DIRECTORY/
 
+    if [ -f "src/main/resources/applicationContext.xml" ]; then
+        cp src/main/resources/applicationContext.xml $BUILD_DIRECTORY/WEB-INF/classes/
+    elif [ -f "src/main/java/applicationContext.xml" ]; then
+        cp src/main/java/applicationContext.xml $BUILD_DIRECTORY/WEB-INF/classes/
+    fi
+
     echo "[3/4] Création du fichier .war..."
     cd $BUILD_DIRECTORY || exit
     jar -cf ../$APP_NAME.war *
