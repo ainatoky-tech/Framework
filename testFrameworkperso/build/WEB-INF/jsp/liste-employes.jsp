@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ List<String> employes = (List<String>) request.getAttribute("liste"); %>
+<% List<String> employes = (List<String>) request.getAttribute("liste"); %>
 <html>
 <head>
     <title>Liste des employés</title>

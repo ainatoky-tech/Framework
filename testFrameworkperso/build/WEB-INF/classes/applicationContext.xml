@@ -13,7 +13,7 @@
     <bean id="database" class="utils.Database">
         <property name="url" value="#{systemEnvironment['DB_URL'] ?: 'jdbc:mysql://mysql:3306/testframework?useSSL=false&amp;allowPublicKeyRetrieval=true'}" />
         <property name="username" value="#{systemEnvironment['DB_USER'] ?: 'root'}" />
-        <property name="password" value="#{systemEnvironment['DB_PASSWORD'] ?: ''}" />
+        <property name="password" value="#{systemEnvironment['DB_PASSWORD'] ?: }" />
     </bean>
 
 </beans>

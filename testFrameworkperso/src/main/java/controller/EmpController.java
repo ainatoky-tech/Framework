@@ -59,7 +59,7 @@ public class EmpController {
         return mv;
     }
 
-    @UrlMapping(value = "test/controller/list", method = "GET")
+    @UrlMapping(value = "/test/controller/list", method = "GET")
     public ModelView liste(){
         ModelView mv = new ModelView("liste-employes");
         // Simulation des données en mémoire
