@@ -24,7 +24,7 @@ public class ContextLoaderListener implements ServletContextListener {
         // 1. On récupère le paramètre global depuis le web.xml
         String packageToScan = context.getInitParameter("packageToScan");
         
-        if (packageToScan == null || packageToScan.isEmpty()) {
+        /*if (packageToScan == null || packageToScan.isEmpty()) {
             System.out.println("[Listener ERROR] Le paramètre global 'packageToScan' est manquant.");
             return;
         }
@@ -40,15 +40,6 @@ public class ContextLoaderListener implements ServletContextListener {
             // C'est comme une boîte partagée où le FrontController pourra venir se servir plus tard !
             context.setAttribute("mappingUrls", mappingUrls);
             context.setAttribute("totalControllersFound", totalControllers);
-            /*try {
-                Class<?> xmlContextClass = Class.forName("org.springframework.context.support.ClassPathXmlApplicationContext");
-                Object springContext = xmlContextClass.getConstructor(String.class).newInstance("applicationContext.xml");  
-
-                context.setAttribute("springContext", springContext);
-                System.out.println("[Framework] Spring IoC détecté et initialisé via réflexion !");
-            } catch (ClassNotFoundException e) {
-                System.out.println("[Framework] Spring IoC non présent dans WEB-INF/lib. Mode standalone.");
-            }*/
 
             System.out.println("[Listener SUCCESS] " + totalControllers + " contrôleurs chargés au démarrage !");
             System.out.println("==================================================");
@@ -58,7 +49,42 @@ public class ContextLoaderListener implements ServletContextListener {
             e.printStackTrace();
             // Si ça plante ici, l'application refuse de démarrer, ce qui est parfait pour la sécurité
             throw new RuntimeException(e);
+        }*/
+       if (packageToScan != null && !packageToScan.trim().isEmpty()) {
+            try {
+                HashMap<Urlkey, Mapping> mappingUrls = new HashMap<>();
+                int totalControllers = AnnotationScanner.scanComponents(packageToScan, mappingUrls);
+
+                context.setAttribute("mappingUrls", mappingUrls);
+                context.setAttribute("totalControllersFound", totalControllers);
+
+                System.out.println("[Listener SUCCESS] " + totalControllers + " contrôleurs chargés au démarrage !");
+            } catch (Exception e) {
+                System.err.println("[Listener CRITICAL ERROR] Échec du scan au démarrage !");
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.err.println("[Listener WARNING] Le paramètre 'packageToScan' est manquant dans web.xml.");
         }
+
+        // 2. Initialisation de Spring IoC par réflexion
+        try {
+            Class<?> xmlContextClass = Class.forName("org.springframework.context.support.ClassPathXmlApplicationContext");
+            Object springContext = xmlContextClass.getConstructor(String.class).newInstance("applicationContext.xml");  
+
+            context.setAttribute("springContext", springContext);
+            System.out.println("[Framework SUCCESS] Spring IoC initialisé avec succès !");
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("[Framework INFO] Spring IoC non présent dans WEB-INF/lib. Mode standalone.");
+        } catch (Exception e) {
+            System.err.println("[Framework WARNING] Échec du chargement de applicationContext.xml :");
+            // e.printStackTrace() est crucial ici pour voir l'erreur XML exacte dans catalina.out
+            e.printStackTrace();
+        }
+
+        System.out.println("==================================================");
     }
 
     @Override

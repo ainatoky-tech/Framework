@@ -1,0 +1,122 @@
+10-Sep-2026 20:11:47.874 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+10-Sep-2026 20:11:47.883 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+10-Sep-2026 20:11:47.894 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+[LISTENER] Application arrêtée.
+10-Sep-2026 20:11:47.929 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+10-Sep-2026 20:11:47.938 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+Picked up JAVA_TOOL_OPTIONS: -Djava.awt.headless=false
+10-Sep-2026 20:11:53.358 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.59
+10-Sep-2026 20:11:53.364 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Aug 13 2026 16:59:10 UTC
+10-Sep-2026 20:11:53.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.59.0
+10-Sep-2026 20:11:53.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+10-Sep-2026 20:11:53.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.87.2-microsoft-standard-WSL2
+10-Sep-2026 20:11:53.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+10-Sep-2026 20:11:53.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk
+10-Sep-2026 20:11:53.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.12+8-LTS
+10-Sep-2026 20:11:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+10-Sep-2026 20:11:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+10-Sep-2026 20:11:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+10-Sep-2026 20:11:53.380 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.awt.headless=false
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+10-Sep-2026 20:11:53.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+10-Sep-2026 20:11:53.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+10-Sep-2026 20:11:53.392 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.15] using APR version [1.7.2].
+10-Sep-2026 20:11:53.402 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+10-Sep-2026 20:11:53.783 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+10-Sep-2026 20:11:53.806 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [641] milliseconds
+10-Sep-2026 20:11:53.855 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+10-Sep-2026 20:11:53.855 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.59]
+10-Sep-2026 20:11:53.896 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/TestFramework.war]
+10-Sep-2026 20:11:53.916 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/TestFramework] was found with a last modified time that did not match the associated WAR. It will be deleted.
+10-Sep-2026 20:11:55.059 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+==================================================
+   [LISTENER] APPLICATION TOMCAT DÉMARRÉE        
+==================================================
+[CLASSE DÉTECTÉE] -> controller.EmpController
+  └── Enregistré : [GET] /test ──> test()
+  └── Enregistré : [GET] /emp/list ──> list()
+  └── Enregistré : [GET] test/controller/list ──> liste()
+[CLASSE DÉTECTÉE] -> controller.TestController
+  └── Enregistré : [GET] /testcontrolle/list ──> listage()
+[Listener SUCCESS] 2 contrôleurs chargés au démarrage !
+[Framework WARNING] Échec du chargement de applicationContext.xml :
+java.lang.reflect.InvocationTargetException
+        at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+        at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+        at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+        at listener.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:74)
+        at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4223)
+        at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4651)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:170)
+        at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:616)
+        at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:588)
+        at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:679)
+        at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:964)
+        at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1934)
+        at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:92)
+        at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+        at org.apache.catalina.startup.HostConfig.deployWARs(HostConfig.java:795)
+        at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:449)
+        at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1646)
+        at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:324)
+        at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:115)
+        at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:395)
+        at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:342)
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:792)
+        at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:797)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:170)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1243)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1233)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:92)
+        at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:765)
+        at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:201)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:170)
+        at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:170)
+        at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:875)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:170)
+        at org.apache.catalina.startup.Catalina.start(Catalina.java:885)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:348)
+        at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:485)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [applicationContext.xml]
+        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:349)
+        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
+        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:216)
+        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:187)
+        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:249)
+        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:131)
+        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:96)
+        at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:129)
+        at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:708)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:590)
+        at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:144)
+        at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:85)
+        at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+        ... 42 more
+Caused by: java.io.FileNotFoundException: class path resource [applicationContext.xml] cannot be opened because it does not exist
+        at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:212)
+        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:340)
+        ... 55 more
+==================================================
+10-Sep-2026 20:11:55.210 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/TestFramework.war] has finished in [1,314] ms
+10-Sep-2026 20:11:55.214 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+10-Sep-2026 20:11:55.227 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1419] milliseconds

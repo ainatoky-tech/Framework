@@ -65,12 +65,15 @@ public class FrontController extends HttpServlet {
             Object springContext = getServletContext().getAttribute("springContext");
             if (springContext != null) {
                 try {
-                    // Équivalent de : springContext.getAutowireCapableBeanFactory().autowireBean(controllerInstance)
                     Object beanFactory = springContext.getClass().getMethod("getAutowireCapableBeanFactory").invoke(springContext);
                     beanFactory.getClass().getMethod("autowireBean", Object.class).invoke(beanFactory, controllerInstance);
+                    System.out.println("[DEBUG FRONTCONTROLLER] -> Injection réussie pour : " + controllerInstance.getClass().getName());
                 } catch (Exception ex) {
-                    System.err.println("[Framework Error] Échec de l'injection Spring : " + ex.getMessage());
+                    System.err.println("[DEBUG FRONTCONTROLLER ERROR] -> Échec de autowireBean : " + ex.getMessage());
+                    ex.printStackTrace();
                 }
+            } else {
+                System.err.println("[DEBUG FRONTCONTROLLER ERROR] -> springContext est NULL dans ServletContext !");
             }
             
             java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName());

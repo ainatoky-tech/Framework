@@ -26,7 +26,7 @@ public class Userrepository {
     }
     public List<UserModel> findall(Connection connection) throws SQLException {
         List<UserModel> listuser = new ArrayList<>();
-        String request = "SELECT id, username, 'function' FROM testframework.users";
+        String request = "SELECT id, username, `function` FROM testframework.users";
         try(
             Statement statement = connection.createStatement();
             ResultSet resultset = statement.executeQuery(request);
@@ -35,7 +35,7 @@ public class Userrepository {
                 UserModel user = new UserModel(
                     resultset.getInt("id"),
                     resultset.getString("username"),
-                    resultset.getString("function") 
+                    resultset.getString("`function`") 
                 );
                 listuser.add(user);
             }
