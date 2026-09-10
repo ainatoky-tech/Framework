@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.UserModel" %>
+<%@ List<UserModel> employes = (List<UserModel>) request.getAttribute("employeListe")%>
+<%@ <!--List<String> employes = (List<String>) request.getAttribute("liste");--> %>
 <html>
 <head>
     <title>Liste des employés</title>
@@ -14,9 +16,10 @@
     </script>
     <ul>
     <% 
-        List<String> employes = (List<String>) request.getAttribute("liste");
-        if (employes != null && !employes.isEmpty()) {
-            for (String emp : employes) {
+        <!--if (employes != null && !employes.isEmpty()) {
+            for (String emp : employes) {-->
+        if(employes != null && !employes.isEmpty()){
+            for(UserModel emp : employes){
     %>
                 <li><%= emp %></li>
     <% 

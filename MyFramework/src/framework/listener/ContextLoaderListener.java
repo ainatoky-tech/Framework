@@ -40,6 +40,15 @@ public class ContextLoaderListener implements ServletContextListener {
             // C'est comme une boîte partagée où le FrontController pourra venir se servir plus tard !
             context.setAttribute("mappingUrls", mappingUrls);
             context.setAttribute("totalControllersFound", totalControllers);
+            /*try {
+                Class<?> xmlContextClass = Class.forName("org.springframework.context.support.ClassPathXmlApplicationContext");
+                Object springContext = xmlContextClass.getConstructor(String.class).newInstance("applicationContext.xml");  
+
+                context.setAttribute("springContext", springContext);
+                System.out.println("[Framework] Spring IoC détecté et initialisé via réflexion !");
+            } catch (ClassNotFoundException e) {
+                System.out.println("[Framework] Spring IoC non présent dans WEB-INF/lib. Mode standalone.");
+            }*/
 
             System.out.println("[Listener SUCCESS] " + totalControllers + " contrôleurs chargés au démarrage !");
             System.out.println("==================================================");

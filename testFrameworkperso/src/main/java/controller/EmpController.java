@@ -4,14 +4,22 @@ package controller;
 import annotation.Controller;
 import annotation.UrlMapping;
 import model.ModelView;
+import service.UserService;
+import model.UserModel;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class EmpController {
 
-    
+    @Autowired 
+    private UserService userService;
+
+
+    public EmpController(){}
+
     /*Simule une requête GET /emp/list
     @UrlMapping(value = "/emp/list", method = "GET") // Si ton annotation supporte l'attribut method
     public void list() {
@@ -36,14 +44,12 @@ public class EmpController {
         ModelView mv = new ModelView("liste-employes");
 
         // Simulation des données en mémoire
-        List<String> employes = new ArrayList<>();
-        employes.add("Rakoto (Dev Java)");
-        employes.add("Rabe (Docker Expert)");
-        employes.add("Rasoa (Architecte)");
+        //List<String> employes = new ArrayList<>();
+        List<UserModel> employes = userService.getAllUser();
 
         // Injection dans le ModelView sous la clé "liste"
-        mv.addItem("liste", employes);
-
+        //mv.addItem("liste", employes);
+        mv.addItem("employeListe", employes);
         return mv;
     }
 

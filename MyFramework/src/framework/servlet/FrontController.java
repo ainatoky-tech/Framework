@@ -60,6 +60,19 @@ public class FrontController extends HttpServlet {
             // 4. Exécution par réflexion
             Class<?> clazz = Class.forName(mapping.getClassname());
             Object controllerInstance = clazz.getDeclaredConstructor().newInstance();
+            
+            // INJECTION PAR RÉFLEXION (Aucun import org.springframework)
+            Object springContext = getServletContext().getAttribute("springContext");
+            if (springContext != null) {
+                try {
+                    // Équivalent de : springContext.getAutowireCapableBeanFactory().autowireBean(controllerInstance)
+                    Object beanFactory = springContext.getClass().getMethod("getAutowireCapableBeanFactory").invoke(springContext);
+                    beanFactory.getClass().getMethod("autowireBean", Object.class).invoke(beanFactory, controllerInstance);
+                } catch (Exception ex) {
+                    System.err.println("[Framework Error] Échec de l'injection Spring : " + ex.getMessage());
+                }
+            }
+            
             java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName());
             Object result = methodToExecute.invoke(controllerInstance);
 

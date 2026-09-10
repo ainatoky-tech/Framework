@@ -1,15 +1,25 @@
 package model;
 
 public class UserModel {
+    private int id;
     private String username;
     private String function;
     
     public UserModel() {
     }
 
-    public UserModel(String username, String function) {
+    public UserModel(int id, String username, String function) {
+        this.id = id;   
         this.username = username;
         this.function = function;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {

@@ -11,18 +11,6 @@ public class Database {
     private String password;
 
     public Database() {
-        this.url = System.getenv("DB_URL");
-        this.username = System.getenv("DB_USER");
-        this.password = System.getenv("DB_PASSWORD");
-        if(this.url == null){
-            url = "jdbc:mysql://mysql:3306/testframework?useSSL=false&allowPublicKeyRetrieval=true";
-        }
-        if(this.username == null){
-            username = "root";
-        }
-        if(this.password == null){
-            password = "";
-        }
     }
 
     
