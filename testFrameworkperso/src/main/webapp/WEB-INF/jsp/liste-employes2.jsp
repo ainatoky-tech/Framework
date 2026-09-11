@@ -23,7 +23,7 @@
         if (employes != null && !employes.isEmpty()) {
             for (UserModel emp : employes) {
     %>
-                <li><%= emp %></li>
+                <li><%= emp.getFunction() %></li>
     <% 
             }
         } else {

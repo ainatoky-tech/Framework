@@ -35,7 +35,7 @@ public class Userrepository {
                 UserModel user = new UserModel(
                     resultset.getInt("id"),
                     resultset.getString("username"),
-                    resultset.getString("`function`") 
+                    resultset.getString("function") 
                 );
                 listuser.add(user);
             }

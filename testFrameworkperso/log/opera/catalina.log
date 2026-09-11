@@ -1,5 +1,5 @@
-10-Sep-2026 21:41:39.589 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [TestFramework] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
-10-Sep-2026 21:41:39.593 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [TestFramework] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+11-Sep-2026 08:47:54.860 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [TestFramework] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+11-Sep-2026 08:47:54.861 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [TestFramework] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base/jdk.internal.misc.Unsafe.park(Native Method)
  java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
  java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
@@ -10,100 +10,66 @@
  java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
  java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
  java.base/java.lang.Thread.run(Thread.java:1583)
-10-Sep-2026 21:41:39.646 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
-10-Sep-2026 21:41:39.657 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+11-Sep-2026 08:47:54.869 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+11-Sep-2026 08:47:54.877 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+11-Sep-2026 08:47:54.913 INFO [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+        java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+                at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1500)
+                at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1067)
+                at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:116)
+                at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:83)
+                at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+                at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+                at java.base/java.lang.Thread.run(Thread.java:1583)
 Picked up JAVA_TOOL_OPTIONS: -Djava.awt.headless=false
-10-Sep-2026 21:41:45.089 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.59
-10-Sep-2026 21:41:45.095 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Aug 13 2026 16:59:10 UTC
-10-Sep-2026 21:41:45.096 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.59.0
-10-Sep-2026 21:41:45.096 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-10-Sep-2026 21:41:45.096 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.87.2-microsoft-standard-WSL2
-10-Sep-2026 21:41:45.096 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-10-Sep-2026 21:41:45.096 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk
-10-Sep-2026 21:41:45.097 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.12+8-LTS
-10-Sep-2026 21:41:45.097 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
-10-Sep-2026 21:41:45.097 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-10-Sep-2026 21:41:45.097 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-10-Sep-2026 21:41:45.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.awt.headless=false
-10-Sep-2026 21:41:45.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
-10-Sep-2026 21:41:45.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
-10-Sep-2026 21:41:45.115 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
-10-Sep-2026 21:41:45.115 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
-10-Sep-2026 21:41:45.115 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
-10-Sep-2026 21:41:45.115 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
-10-Sep-2026 21:41:45.115 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-10-Sep-2026 21:41:45.115 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-10-Sep-2026 21:41:45.116 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-10-Sep-2026 21:41:45.133 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.15] using APR version [1.7.2].
-10-Sep-2026 21:41:45.148 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
-10-Sep-2026 21:41:45.613 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-10-Sep-2026 21:41:45.638 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [821] milliseconds
-10-Sep-2026 21:41:45.691 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-10-Sep-2026 21:41:45.691 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.59]
-10-Sep-2026 21:41:45.721 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/TestFramework.war]
-10-Sep-2026 21:41:45.746 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/TestFramework] was found with a last modified time that did not match the associated WAR. It will be deleted.
-10-Sep-2026 21:41:47.232 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2026 08:48:00.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.59
+11-Sep-2026 08:48:00.309 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Aug 13 2026 16:59:10 UTC
+11-Sep-2026 08:48:00.309 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.59.0
+11-Sep-2026 08:48:00.309 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+11-Sep-2026 08:48:00.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.87.2-microsoft-standard-WSL2
+11-Sep-2026 08:48:00.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+11-Sep-2026 08:48:00.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk
+11-Sep-2026 08:48:00.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.12+8-LTS
+11-Sep-2026 08:48:00.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+11-Sep-2026 08:48:00.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+11-Sep-2026 08:48:00.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+11-Sep-2026 08:48:00.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.awt.headless=false
+11-Sep-2026 08:48:00.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+11-Sep-2026 08:48:00.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+11-Sep-2026 08:48:00.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+11-Sep-2026 08:48:00.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+11-Sep-2026 08:48:00.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+11-Sep-2026 08:48:00.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+11-Sep-2026 08:48:00.327 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.15] using APR version [1.7.2].
+11-Sep-2026 08:48:00.333 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+11-Sep-2026 08:48:00.636 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+11-Sep-2026 08:48:00.655 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [529] milliseconds
+11-Sep-2026 08:48:00.691 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+11-Sep-2026 08:48:00.691 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.59]
+11-Sep-2026 08:48:00.715 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/TestFramework.war]
+11-Sep-2026 08:48:00.733 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/TestFramework] was found with a last modified time that did not match the associated WAR. It will be deleted.
+11-Sep-2026 08:48:01.879 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
 ==================================================
-   [LISTENER] APPLICATION TOMCAT DÉMARRÉE        
+   [LISTENER] APPLICATION TOMCAT DÉMARRÉE
 ==================================================
 [CLASSE DÉTECTÉE] -> controller.EmpController
   └── Enregistré : [GET] /test ──> test()
   └── Enregistré : [GET] /emp/list ──> list()
-  └── Enregistré : [GET] test/controller/list ──> liste()
+  └── Enregistré : [GET] /test/controller/list ──> liste()
 [CLASSE DÉTECTÉE] -> controller.TestController
   └── Enregistré : [GET] /testcontrolle/list ──> listage()
 [Listener SUCCESS] 2 contrôleurs chargés au démarrage !
 [Framework SUCCESS] Spring IoC initialisé avec succès !
 ==================================================
-10-Sep-2026 21:41:47.939 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/TestFramework.war] has finished in [2,217] ms
-10-Sep-2026 21:41:47.944 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-10-Sep-2026 21:41:47.980 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2339] milliseconds
-[DEBUG FRONTCONTROLLER] -> Injection réussie pour : controller.EmpController
-java.sql.SQLException: Access denied for user 'root'@'172.18.0.2' (using password: YES)
-        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-        at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:839)
-        at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:415)
-        at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-        at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
-        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
-        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
-        at utils.Database.getConnection(Database.java:38)
-        at repository.Userrepository.findall(Userrepository.java:20)
-        at service.UserService.getAllUser(UserService.java:19)
-        at controller.EmpController.list(EmpController.java:48)
-        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-        at servlet.FrontController.processRequest(FrontController.java:80)
-        at servlet.FrontController.doGet(FrontController.java:123)
-        at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-        at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:57)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
-        at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:782)
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:348)
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:410)
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2197)
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:976)
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:494)
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:80)
-        at java.base/java.lang.Thread.run(Thread.java:1583)
-[DEBUG] Forward vers : /WEB-INF/jsp/liste-employes2.jsp
+11-Sep-2026 08:48:02.386 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/TestFramework.war] has finished in [1,671] ms
+11-Sep-2026 08:48:02.395 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+11-Sep-2026 08:48:02.412 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1756] milliseconds
