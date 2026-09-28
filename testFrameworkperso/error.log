@@ -1,0 +1,516 @@
+[115 ms] Dev Containers 0.469.0 in VS Code 1.138.0 (7debcd0e2acdea1c52de81bf9ee1620444407dda).
+[113 ms] Start: Resolving Remote
+[134 ms] Setting up container for folder or workspace: c:\Toky\webdynamique\Framework\testFrameworkperso
+[136 ms] Context: desktop-linux
+[142 ms] Start: Run: wsl -l -v
+[258 ms] Start: Run: wsl -d docker-desktop -e /bin/sh -c echo ~
+[508 ms] Start: Run: wsl -d docker-desktop -e /bin/sh -c cd '/root' && /bin/sh
+[529 ms] Start: Run in host: id -un
+[659 ms] root
+[662 ms] 
+[667 ms] Start: Run in host:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[676 ms] Start: Run in host: echo ~
+[682 ms] /root
+[684 ms] 
+[691 ms] Start: Run in host: test -f '/root/.vscode-server/cli/servers/Stable-7debcd0e2acdea1c52de81bf9ee1620444407dda/server/node'
+[697 ms] 
+[700 ms] 
+[703 ms] Exit code 1
+[709 ms] Start: Run in host: test -f '/root/.vscode/cli/servers/Stable-7debcd0e2acdea1c52de81bf9ee1620444407dda/server/node'
+[715 ms] 
+[718 ms] 
+[721 ms] Exit code 1
+[727 ms] Start: Run in host: test -f '/root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/node'
+[734 ms] 
+[736 ms] 
+[737 ms] Exit code 1
+[739 ms] Start: Run in host: test -f '/root/.vscode-remote-containers/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/node'
+[742 ms] 
+[743 ms] 
+[745 ms] Exit code 1
+[748 ms] Start: Run in host: uname -s
+[751 ms] Linux
+[753 ms] 
+[755 ms] Start: Run in host: uname -m
+[757 ms] x86_64
+[759 ms] 
+[762 ms] Start: Run in host: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[766 ms] PRETTY_NAME="Docker Desktop"
+[768 ms] 
+[8718 ms] Start: Installing VS Code Server
+[8726 ms] Start: Run in host: mkdir -p /root/.vscode-remote-containers/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda_1790159700127
+[8731 ms] 
+[8733 ms] mkdir: can't create directory '/root/.vscode-remote-containers/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda_1790159700127': Read-only file system
+[8734 ms] Exit code 1
+[8736 ms] Start: Run in host: rm -rf /root/.vscode-remote-containers/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda_1790159700127
+[8740 ms] 
+[8741 ms] 
+[8746 ms] Could not connect to WSL.
+[8747 ms] Command in host failed: mkdir -p /root/.vscode-remote-containers/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda_1790159700127
+[8749 ms] mkdir: can't create directory '/root/.vscode-remote-containers/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda_1790159700127': Read-only file system
+[8769 ms] Start: Check Docker is running
+[8771 ms] Start: Run: docker version
+[8899 ms] Client:
+ Version:           29.8.0
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        88096ef
+ Built:             Thu Sep  3 21:53:38 2026
+ OS/Arch:           windows/amd64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.91.0 (239619)
+ Engine:
+[8901 ms]   Version:          29.8.0
+  API version:      1.56 (minimum version 1.40)
+  Go version:       go1.26.8
+  Git commit:       3ce5872
+  Built:            Thu Sep  3 21:51:20 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.4
+  GitCommit:        db8809540e1a7a9da5d518876894933ff55692ab
+ runc:
+  Version:          1.4.3
+  GitCommit:        v1.4.3-0-gbb14dabe
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[8924 ms] Start: Run: docker volume ls -q
+[9106 ms] Start: Run: docker inspect --type container 7b0b11f7d4f9ff7b008fcc319ddf2f526a1a8d7701de988750751bea7b0e36b4
+[9270 ms] Start: Run: docker ps -q -a --filter label=vsch.local.folder=c:\Toky\webdynamique\Framework\testFrameworkperso --filter label=vsch.quality=stable
+[9419 ms] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=c:\Toky\webdynamique\Framework\testFrameworkperso --filter label=devcontainer.config_file=c:\Toky\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json
+[9572 ms] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=c:\Toky\webdynamique\Framework\testFrameworkperso
+[9702 ms] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=c:\Toky\webdynamique\Framework\testFrameworkperso
+[9804 ms] Running Dev Containers CLI:   up --user-data-folder c:\Users\admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-6c31fd5e-9bed-4707-97d3-37b03573f6d51790159690316 --workspace-folder c:\Toky\webdynamique\Framework\testFrameworkperso --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=c:\Toky\webdynamique\Framework\testFrameworkperso --id-label devcontainer.config_file=c:\Toky\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --log-level debug --log-format json --config c:\Toky\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 173 --terminal-rows 20 --include-configuration --include-merged-configuration
+[9810 ms] ProxyResolver#loadSystemCertificates count (4ms)
+[9813 ms] ProxyResolver#filterExpiredCertificates count filtered
+[9815 ms] Start: Run: C:\Program Files\Microsoft VS Code\Code.exe c:\Users\admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.469.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-6c31fd5e-9bed-4707-97d3-37b03573f6d51790159690316 --workspace-folder c:\Toky\webdynamique\Framework\testFrameworkperso --workspace-mount-consistency cached --gpu-availability detect --id-label devcontainer.local_folder=c:\Toky\webdynamique\Framework\testFrameworkperso --id-label devcontainer.config_file=c:\Toky\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --log-level debug --log-format json --config c:\Toky\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root --terminal-columns 173 --terminal-rows 20 --include-configuration --include-merged-configuration
+[9997 ms] @devcontainers/cli 0.89.0. Node.js v24.18.1. win32 10.0.26200 x64.
+[9997 ms] Start: Run: docker buildx version
+[10240 ms] github.com/docker/buildx v0.37.0 ac30b249211430b85fb8f37b6e7154b5c47ba0b6
+[10240 ms] 
+[10240 ms] Start: Run: docker -v
+[10320 ms] Start: Run: docker version --format {{.Server.Version}}
+[10439 ms] 29.8.0
+[10439 ms] 
+[10439 ms] Start: Resolving Remote
+[10446 ms] Start: Run: docker compose version --short
+[10624 ms] Docker Compose version: 5.5.1
+[10625 ms] Start: Run: docker compose -f c:\Toky\webdynamique\Framework\testFrameworkperso\docker-compose.yml --profile * config
+[10827 ms] name: testframeworkperso
+services:
+  testframework:
+    container_name: TestFramework
+    environment:
+      DB_PASSWORD: ""
+      DB_URL: jdbc:mysql://mysql:3306/testframework?useSSL=false&allowPublicKeyRetrieval=true
+      DB_USER: root
+    image: javasimple:1.0
+    networks:
+      dev-network: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8081"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: c:\Toky\webdynamique\Framework\testFrameworkperso
+        target: /app
+        bind: {}
+      - type: bind
+        source: c:\Toky\webdynamique\Framework\MyFramework\volumes\FrameworkDependency
+        target: /root/.m2
+        bind: {}
+      - type: bind
+        source: c:\Toky\webdynamique\Framework\MyFramework\volumes\vscode
+        target: /root/.vscode-server
+        bind: {}
+networks:
+  dev-network:
+    name: dev-network
+    external: true
+[10833 ms] Start: Run: docker ps -q -a --filter label=com.docker.compose.project=testframeworkperso --filter label=com.docker.compose.service=testframework
+[10931 ms] Start: Run: docker events --format {{json .}} --filter event=start
+[10946 ms] PersistedPath=c:\Users\admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data, ContainerHasLabels=false
+[10948 ms] Start: Run: docker compose -f c:\Toky\webdynamique\Framework\testFrameworkperso\docker-compose.yml --profile * config
+[11160 ms] name: testframeworkperso
+services:
+  testframework:
+    container_name: TestFramework
+    environment:
+      DB_PASSWORD: ""
+      DB_URL: jdbc:mysql://mysql:3306/testframework?useSSL=false&allowPublicKeyRetrieval=true
+      DB_USER: root
+    image: javasimple:1.0
+    networks:
+      dev-network: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8081"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: c:\Toky\webdynamique\Framework\testFrameworkperso
+        target: /app
+        bind: {}
+      - type: bind
+        source: c:\Toky\webdynamique\Framework\MyFramework\volumes\FrameworkDependency
+        target: /root/.m2
+        bind: {}
+      - type: bind
+        source: c:\Toky\webdynamique\Framework\MyFramework\volumes\vscode
+        target: /root/.vscode-server
+        bind: {}
+networks:
+  dev-network:
+    name: dev-network
+    external: true
+[11161 ms] Start: Run: docker inspect --type image javasimple:1.0
+[11291 ms] Start: Run: docker compose --project-name testframeworkperso -f c:\Toky\webdynamique\Framework\testFrameworkperso\docker-compose.yml build
+WARN[0000] No services to build
+[12704 ms] Docker Compose override file for creating container:
+services:
+  'testframework':
+    entrypoint: ["/bin/sh", "-c", "echo Container started\n
+trap \"exit 0\" 15\n
+\n
+exec \"$$@\"\n
+while sleep 1 & wait $$!; do :; done", "-"]
+    command: []
+    labels:
+      - 'devcontainer.local_folder=c:\Toky\webdynamique\Framework\testFrameworkperso'
+      - 'devcontainer.config_file=c:\Toky\webdynamique\Framework\testFrameworkperso\.devcontainer\devcontainer.json'
+      - 'devcontainer.metadata=[{"customizations":{"vscode":{"settings":{"java.configuration.updateBuildConfiguration":"automatic","java.import.maven.enabled":true,"java.project.referencedLibraries":["src/main/webapp/WEB-INF/lib/*.jar","WEB-INF/lib/*.jar","/root/.m2/repository/**/*.jar"],"java.jdt.ls.vmargs":"-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable","files.watcherExclude":{".git/objects/**":true,".git/subtree-cache/**":true,".hg/store/**":true,"*/.git/objects/**":true,"*/.git/subtree-cache/**":true,"*/.hg/store/**":true},"search.exclude":{"**/node_modules":true,"**/bower_components":true,"**/*.code-search":true,"**/target/**":true}},"extensions":["vscjava.vscode-java-pack","vscjava.vscode-java-dependency"]}},"overrideCommand":true,"forwardPorts":[8080]}]'
+    volumes:
+      - vscode:/vscode
+volumes:
+  
+  vscode:
+    external: true
+[12704 ms] Writing docker-compose.devcontainer.containerFeatures-1790159704106-cab55afb-3e21-4fc7-a7a1-e5259155a689.yml to c:\Users\admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose
+[12707 ms] Start: Run: docker compose --project-name testframeworkperso -f c:\Toky\webdynamique\Framework\testFrameworkperso\docker-compose.yml -f c:\Users\admin\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data\docker-compose\docker-compose.devcontainer.containerFeatures-1790159704106-cab55afb-3e21-4fc7-a7a1-e5259155a689.yml up -d
+[+] up 1/1
+ ✔ Container TestFramework Started                                                                                                                                       0.3s
+[14487 ms] Start: Run: docker ps -q -a --filter label=com.docker.compose.project=testframeworkperso --filter label=com.docker.compose.service=testframework
+[14600 ms] Start: Run: docker inspect --type container a2f32a0cb31d
+[14701 ms] Start: Inspecting container
+[14701 ms] Start: Run: docker inspect --type container a2f32a0cb31d9f8a1ed2ff73c61ad133223bcb1a614836da4e2e28a80fdb7bf1
+[14799 ms] Start: Run in container: /bin/sh
+[14814 ms] Start: Run in container: uname -m
+[14941 ms] x86_64
+[14941 ms] 
+[14941 ms] Start: Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[14944 ms] PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+[14944 ms] 
+[14945 ms] Start: Run in container:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[14949 ms] Start: Run in container: test -f '/var/devcontainer/.patchEtcEnvironmentMarker'
+[14951 ms] 
+[14951 ms] 
+[14951 ms] Exit code 1
+[14952 ms] Start: Run in container: test ! -f '/var/devcontainer/.patchEtcEnvironmentMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcEnvironmentMarker' ; } 2> /dev/null
+[14957 ms] 
+[14957 ms] 
+[14957 ms] Start: Run in container: cat >> /etc/environment <<'etcEnvironmentEOF'
+[14965 ms] 
+[14965 ms] 
+[14965 ms] Start: Run in container: test -f '/var/devcontainer/.patchEtcProfileMarker'
+[14968 ms] 
+[14968 ms] 
+[14968 ms] Exit code 1
+[14968 ms] Start: Run in container: test ! -f '/var/devcontainer/.patchEtcProfileMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcProfileMarker' ; } 2> /dev/null
+[14972 ms] 
+[14972 ms] 
+[14972 ms] Start: Run in container: sed -i -E 's/((^|\s)PATH=)([^\$]*)$/\1${PATH:-\3}/g' /etc/profile || true
+[14977 ms] 
+[14977 ms] 
+[15004 ms] Start: Run: docker inspect --type container a2f32a0cb31d9f8a1ed2ff73c61ad133223bcb1a614836da4e2e28a80fdb7bf1
+[15104 ms] Start: Run: docker exec -i -u root a2f32a0cb31d9f8a1ed2ff73c61ad133223bcb1a614836da4e2e28a80fdb7bf1 /bin/sh -c echo "New container started. Keep-alive process started." ; export VSCODE_REMOTE_CONTAINERS_SESSION=6c31fd5e-9bed-4707-97d3-37b03573f6d51790159690316 ; /bin/sh
+[15107 ms] Start: Inspecting container
+[15108 ms] Start: Run: docker inspect --type container a2f32a0cb31d9f8a1ed2ff73c61ad133223bcb1a614836da4e2e28a80fdb7bf1
+[15233 ms] Start: Run in container: /bin/sh
+[15252 ms] Start: Run in container: uname -m
+[15268 ms] New container started. Keep-alive process started.
+[15386 ms] x86_64
+[15389 ms] 
+[15394 ms] Start: Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[15402 ms] PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+[15404 ms] 
+[15409 ms] Start: Run in container:  (command -v getent >/dev/null 2>&1 && getent passwd 'root' || grep -E '^root|^[^:]*:[^:]*:root:' /etc/passwd || true)
+[15428 ms] safe.directory: Looking up root folder for workspace folder '/app'.
+[15431 ms] Start: Run in container: command -v git >/dev/null 2>&1 && ROOT_FOLDER="$(git -C '/app' rev-parse --show-toplevel)" && test "$(stat -c %u "$ROOT_FOLDER")" != "$(id -u)" && echo -n "$ROOT_FOLDER"
+[15436 ms] 
+[15438 ms] 
+[15439 ms] Exit code 127
+[15441 ms] safe.directory: Checking host ownership of root folder at mount point '/app' skipped.
+[15442 ms] Start: Updating configuration state
+[15466 ms] Start: Run: docker compose version --short
+[15642 ms] Docker Compose version: 5.5.1
+[15645 ms] Start: Setup shutdown monitor
+[15649 ms] Forking shutdown monitor: c:\Users\admin\.vscode\extensions\ms-vscode-remote.remote-containers-0.469.0\dist\shutdown\shutdownMonitorProcess \\.\pipe\vscode-rc-d7c757b6-988f-4bf9-b3e0-b415d9dd7dfa-sock dockerCompose Debug c:\Users\admin\AppData\Roaming\Code\logs\20260923T100152\window2\exthost\ms-vscode-remote.remote-containers 1790159691402
+[15672 ms] Start: Run in container: test -d '/root/.vscode-server'
+[15678 ms] 
+[15680 ms] 
+[15683 ms] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' ; } 2> /dev/null
+[15692 ms] 
+[15694 ms] 
+[15695 ms] Exit code 1
+[15698 ms] Start: Run in container: cat /root/.vscode-server/data/Machine/settings.json
+[15712 ms] {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.import.maven.enabled": false,
+        "java.project.referencedLibraries": [
+                "src/main/webapp/WEB-INF/lib/*.jar",
+                "WEB-INF/lib/*.jar"
+        ],
+        "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
+        "files.watcherExclude": {
+                ".git/objects/**": true,
+                ".git/subtree-cache/**": true,
+                ".hg/store/**": true,
+                "*/.git/objects/**": true,
+                "*/.git/subtree-cache/**": true,
+                "*/.hg/store/**": true
+        },
+        "search.exclude": {
+                "**/node_modules": true,
+                "**/bower_components": true,
+                "**/*.code-search": true,
+                "**/target/**": true
+        },
+        "github.copilot.chat.codeGeneration.instructions": [
+                {
+                        "text": "This workspace is in a dev container running on \"Ubuntu 24.04.4 LTS\".\n\nUse `\"$BROWSER\" <url>` to open a webpage in the host's default browser.\n\nSome of the command line tools available on the `PATH`: `apt`, `dpkg`, `curl`, `wget`, `gpg`, `ps`, `top`, `find`, `grep`, `tar`, `gzip`"
+                }
+        ]
+}
+[15713 ms] 
+[15717 ms] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineMCPConfigMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineMCPConfigMarker' ; } 2> /dev/null
+[15726 ms] 
+[15728 ms] 
+[15730 ms] Exit code 1
+[15733 ms] Start: Run in container: test -d '/root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda'
+[15740 ms] 
+[15742 ms] 
+[15744 ms] Start: Run in container: test -d '/vscode/vscode-server/bin/linux-x64/7debcd0e2acdea1c52de81bf9ee1620444407dda'
+[15748 ms] 
+[15750 ms] 
+[15752 ms] Start: Run in container: touch '/vscode/vscode-server/bin/linux-x64/7debcd0e2acdea1c52de81bf9ee1620444407dda'
+[15757 ms] 
+[15758 ms] 
+[15761 ms] Start: Run in container: test -x '/root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/bin/helpers/check-requirements.sh'
+[15768 ms] 
+[15769 ms] 
+[15771 ms] Start: Run in container: '/root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/bin/helpers/check-requirements.sh'
+[15838 ms] 
+[15840 ms] 
+[15842 ms] Start: Launching Dev Containers helper.
+[15843 ms] ssh-agent: SSH_AUTH_SOCK not set on local host.
+[15846 ms] Start: Run in container: gpgconf --list-dirs
+[15851 ms] sysconfdir:/etc/gnupg
+bindir:/usr/bin
+libexecdir:/usr/lib/gnupg
+libdir:/usr/lib/x86_64-linux-gnu/gnupg
+datadir:/usr/share/gnupg
+localedir:/usr/share/locale
+socketdir:/root/.gnupg
+dirmngr-socket:/root/.gnupg/S.dirmngr
+keyboxd-socket:/root/.gnupg/S.keyboxd
+agent-ssh-socket:/root/.gnupg/S.gpg-agent.ssh
+agent-extra-socket:/root/.gnupg/S.gpg-agent.extra
+agent-browser-socket:/root/.gnupg/S.gpg-agent.browser
+agent-socket:/root/.gnupg/S.gpg-agent
+homedir:/root/.gnupg
+[15852 ms] 
+[15855 ms] Start: Run in container: ls '/root/.gnupg/private-keys-v1.d' 2>/dev/null
+[15860 ms] 
+[15861 ms] 
+[15863 ms] Exit code 2
+[15865 ms] Start: Run in container: grep -e '^s*use-keyboxds*$' '/root/.gnupg/common.conf' 2>/dev/null
+[15870 ms] 
+[15872 ms] 
+[15873 ms] Exit code 2
+[15876 ms] Start: Run: gpgconf --list-dirs
+[15887 ms] gpg-agent: No agent-extra-socket found on local host.
+[15889 ms] Start: Run in container: (command -v 'docker' || command -v 'oras' || command -v 'skopeo') >/dev/null 2>&1
+[15893 ms] 
+[15895 ms] 
+[15896 ms] Exit code 127
+[15899 ms] Start: Run in container: /bin/sh
+[15901 ms] userEnvProbe: loginInteractiveShell (default)
+[15903 ms] Start: Run in container: test -f '/tmp/devcontainers-6c31fd5e-9bed-4707-97d3-37b03573f6d51790159690316/env-loginInteractiveShell.json'
+[15907 ms] 
+[15909 ms] 
+[15910 ms] Exit code 1
+[15913 ms] Start: Run in container: command -v git >/dev/null 2>&1 && git config --system --replace-all credential.helper '!f() { /root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/node /tmp/vscode-remote-containers-28047a00-69a9-4d36-9585-fd88a5500ad0.js git-credential-helper $*; }; f' || true
+[15915 ms] userEnvProbe: not found in cache
+[15916 ms] userEnvProbe shell: /bin/bash
+[15918 ms] 
+[15920 ms] 
+[15923 ms] Start: Run in container: for pid in `cd /proc && ls -d [0-9]*`; do { echo $pid ; readlink /proc/$pid/cwd || echo ; readlink /proc/$pid/ns/mnt || echo ; cat /proc/$pid/stat | tr "
+[15946 ms] Start: Run in container: echo ~
+[15974 ms] Start: Run in container: cat '/root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/product.json'
+[15989 ms] Start: Run in container: cat '/root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda' 2>/dev/null || (umask 377 && echo '411ae796-5563-4329-a747-e9858b754f54' >'/root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda-1263f230-7c06-4002-80ce-abcc77cc59f5' && mv -n '/root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda-1263f230-7c06-4002-80ce-abcc77cc59f5' '/root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda' && rm -f '/root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda-1263f230-7c06-4002-80ce-abcc77cc59f5' && cat '/root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda')
+[15999 ms] 500f9a31-372c-46d6-b562-6336f8e7e428
+[16002 ms] 
+[16005 ms] Start: Starting VS Code Server
+[16007 ms] Start: Preparing Extensions
+[16008 ms] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.installExtensionsMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.installExtensionsMarker' ; } 2> /dev/null
+[16015 ms] 
+[16017 ms] 
+[16018 ms] Exit code 1
+[16022 ms] Extensions cache, install extensions: None
+[16023 ms] Start: Run in container: test -d /root/.vscode-server/extensionsCache && ls /root/.vscode-server/extensionsCache || true
+[16035 ms] bmewburn.vscode-intelephense-client-1.18.5
+christian-kohler.path-intellisense-2.10.0
+ms-python.python-2026.4.0-linux-x64
+ms-python.vscode-pylance-2026.3.1
+ms-toolsai.jupyter-2025.9.1-linux-x64
+ms-toolsai.jupyter-keymap-1.1.2
+ms-toolsai.jupyter-renderers-1.3.0
+ms-toolsai.vscode-jupyter-cell-tags-0.1.9
+ms-toolsai.vscode-jupyter-slideshow-0.1.6
+ms-vscode.cmake-tools-1.24.42
+ms-vscode.cpp-devtools-0.6.18
+ms-vscode.cpptools-1.34.4-linux-x64
+ms-vscode.cpptools-extension-pack-1.5.1
+ms-vscode.cpptools-themes-2.0.0
+onecentlin.laravel-blade-1.38.0
+vmware.vscode-spring-boot-2.4.0
+vscjava.vscode-java-dependency-0.27.6
+vscjava.vscode-java-pack-0.31.1
+vscjava.vscode-spring-boot-dashboard-0.14.0
+xdebug.php-debug-1.40.2
+[16037 ms] 
+[16040 ms] Start: Run in container: test -d /vscode/vscode-server/extensionsCache && ls /vscode/vscode-server/extensionsCache || true
+[16046 ms] bmewburn.vscode-intelephense-client-1.18.5
+bmewburn.vscode-intelephense-client-1.18.5.sigzip
+christian-kohler.path-intellisense-2.10.0
+christian-kohler.path-intellisense-2.10.0.sigzip
+ms-python.debugpy-2026.6.0-linux-x64
+ms-python.python-2026.4.0-linux-x64
+ms-python.vscode-pylance-2026.3.1
+ms-python.vscode-python-envs-1.36.0-linux-x64
+ms-toolsai.jupyter-2025.9.1-linux-x64
+ms-toolsai.jupyter-keymap-1.1.2
+ms-toolsai.jupyter-renderers-1.3.0
+ms-toolsai.vscode-jupyter-cell-tags-0.1.9
+ms-toolsai.vscode-jupyter-slideshow-0.1.6
+ms-vscode.cmake-tools-1.24.42
+ms-vscode.cpp-devtools-0.6.18
+ms-vscode.cpptools-1.34.4-linux-x64
+ms-vscode.cpptools-extension-pack-1.5.1
+ms-vscode.cpptools-themes-2.0.0
+onecentlin.laravel-blade-1.38.0
+onecentlin.laravel-blade-1.38.0.sigzip
+redhat.java-1.56.0-linux-x64
+vmware.vscode-spring-boot-2.4.0
+vscjava.vscode-gradle-3.18.0
+vscjava.vscode-java-debug-0.59.0
+vscjava.vscode-java-dependency-0.27.6
+vscjava.vscode-java-pack-0.31.1
+vscjava.vscode-java-test-0.46.0
+vscjava.vscode-maven-0.45.3
+vscjava.vscode-spring-boot-dashboard-0.14.0
+xdebug.php-debug-1.40.2
+xdebug.php-debug-1.40.2.sigzip
+[16049 ms] 
+[16051 ms] Extensions cache, link in container: None
+[16053 ms] Optimizing extensions for quality: stable
+[16055 ms] Start: Run in container: /root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/bin/code-server --log debug --force-disable-user-env --server-data-dir /root/.vscode-server --use-host-proxy --telemetry-level all --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /root/.vscode-server/data/Machine/.connection-token-7debcd0e2acdea1c52de81bf9ee1620444407dda --extensions-download-dir /root/.vscode-server/extensionsCache --start-server --disable-websocket-compression --skip-requirements-check
+[16094 ms] /root
+[16096 ms] 
+[16099 ms] Start: Run in container: cat <<'EOF-/tmp/vscode-remote-containers-28047a00-69a9-4d36-9585-fd88a5500ad0.js' >/tmp/vscode-remote-containers-28047a00-69a9-4d36-9585-fd88a5500ad0.js
+[16104 ms] 
+[16106 ms] 
+[16108 ms] Start: Run in container: cat <<'EOF-/tmp/vscode-remote-containers-server-28047a00-69a9-4d36-9585-fd88a5500ad0.js' >/tmp/vscode-remote-containers-server-28047a00-69a9-4d36-9585-fd88a5500ad0.js_1790159707510
+[16117 ms] 
+[16119 ms] 
+[16204 ms] userEnvProbe PATHs:
+Probe:     '/usr/local/tomcat/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+Container: '/usr/local/tomcat/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+[16206 ms] Start: Run in container: mkdir -p '/tmp/devcontainers-6c31fd5e-9bed-4707-97d3-37b03573f6d51790159690316' && cat > '/tmp/devcontainers-6c31fd5e-9bed-4707-97d3-37b03573f6d51790159690316/env-loginInteractiveShell.json' << 'envJSON'
+[16211 ms] 
+[16213 ms] 
+[16353 ms] *
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+[16361 ms] Server bound to 127.0.0.1:38309 (IPv4)
+Extension host agent listening on 38309
+
+[16365 ms] Start: Run in container: echo 38309 >'/root/.vscode-server/data/Machine/.devport-7debcd0e2acdea1c52de81bf9ee1620444407dda'
+[16380 ms] 
+[16382 ms] 
+[16386 ms] Port forwarding for container port 38309 starts listening on local port.
+[16390 ms] Port forwarding local port 38309 to container port 38309
+[16404 ms] Initializing configuration support...
+[16405 ms] Internal initialization of dev container support package...
+[16415 ms] Port forwarding connection from 64837 > 38309 > 38309 in the container.
+[16417 ms] Start: Run in container: /root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/node -e 
+[16419 ms] Start: Run in container: # Test for /root/.gitconfig and git
+[16425 ms] git not found
+[16427 ms] 
+[16428 ms] Exit code 1
+[16432 ms] Start: Run in container: command -v git >/dev/null 2>&1 && git config --global --replace-all credential.helper '!f() { /root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/node /tmp/vscode-remote-containers-28047a00-69a9-4d36-9585-fd88a5500ad0.js git-credential-helper $*; }; f' || true
+[16436 ms] 
+[16438 ms] 
+[16493 ms] Ignoring option 'skip-requirements-check': not supported for server.
+[16517 ms] [10:35:07] 
+
+
+
+
+[16611 ms] [reconnection-grace-time] No CLI argument provided, using default: 10800000ms (10800s)
+[16614 ms] [10:35:08] [AgentHostChannel] Registered lazy IPC channel 'agentHostProxy' (upstream: /tmp/vscode-ipc-320605ba-c8a5-4e2f-97cf-43754933fdc7.sock)
+[16619 ms] [10:35:08] Extension host agent started.
+[16636 ms] Port forwarding 64837 > 38309 > 38309 stderr: Connection established
+[16678 ms] Port forwarding connection from 63091 > 38309 > 38309 in the container.
+[16680 ms] Start: Run in container: /root/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/node -e 
+[16703 ms] [10:35:08] [127.0.0.1][6d10dd39][ManagementConnection] New connection established.
+[16793 ms] [10:35:08] Log level changed to info
+[16807 ms] (node:218) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[16819 ms] [10:35:08] #1: https://main.vscode-cdn.net/extensions/marketplace.json - error GET getaddrinfo ENOTFOUND main.vscode-cdn.net
+[16886 ms] [10:35:08] [AgentHostChannel] Renderer ctx=[object Object] requested connect to upstream
+[16927 ms] Port forwarding 63091 > 38309 > 38309 stderr: Connection established
+[17025 ms] [10:35:08] [127.0.0.1][824f6259][ExtensionHostConnection] New connection established.
+[17027 ms] [10:35:08] [127.0.0.1][824f6259][ExtensionHostConnection] Starting extension host process...
+[17040 ms] [10:35:08] [127.0.0.1][824f6259][ExtensionHostConnection] <319> Launched Extension Host Process.
+[17513 ms] [10:35:08] [127.0.0.1][824f6259][ExtensionHostConnection] <319> [reconnection-grace-time] Extension host: read VSCODE_RECONNECTION_GRACE_TIME=10800000ms (10800s)
+
+[17553 ms] [IPC Library: Agent Host] Agent host server listening on /tmp/vscode-ipc-320605ba-c8a5-4e2f-97cf-43754933fdc7.sock
+[17557 ms] [10:35:08] ServerAgentHostManager: agent host started
+[17559 ms] [10:35:08] [AgentHostChannel] Opening upstream to /tmp/vscode-ipc-320605ba-c8a5-4e2f-97cf-43754933fdc7.sock
+[18658 ms] [10:35:10] #2: https://mobile.events.data.microsoft.com/OneCollector/1.0?cors=true&content-type=application/x-json-stream - error POST getaddrinfo ENOTFOUND mobile.events.data.microsoft.com
+[21807 ms] [10:35:13] #3: https://mobile.events.data.microsoft.com/OneCollector/1.0?cors=true&content-type=application/x-json-stream - error POST getaddrinfo ENOTFOUND mobile.events.data.microsoft.com

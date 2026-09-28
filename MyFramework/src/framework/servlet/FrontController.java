@@ -7,7 +7,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.HashMap;
+
+import annotation.APIRest;
 
 public class FrontController extends HttpServlet {
 
@@ -79,6 +82,31 @@ public class FrontController extends HttpServlet {
             java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName());
             Object result = methodToExecute.invoke(controllerInstance);
 
+            if (methodToExecute.isAnnotationPresent(APIRest.class)) {
+                
+                response.setContentType("application/json;charset=UTF-8");
+                PrintWriter out = response.getWriter();
+                
+                if (result == null) {
+                    out.print("{}");
+                } 
+                // A. Si la méthode renvoie déjà une String JSON faite main
+                else if (result instanceof String) {
+                    out.print((String) result);
+                } 
+                // B. Si la méthode renvoie un ModelView, on sérialise sa Map "data"
+                else if (result instanceof ModelView) {
+                    ModelView mv = (ModelView) result;
+                    out.print(convertObjectToJson(mv.getData()));
+                } 
+                // C. Si la méthode renvoie un objet brut (Employe, List, etc.), le framework le convertit !
+                else {
+                    out.print(convertObjectToJson(result));
+                }
+                
+                out.flush();
+                return; // Court-circuit complet des JSP
+            }
             // 5. Traitement du ModelView
             // 5. Traitement du ModelView
             if (result instanceof ModelView) {
@@ -111,6 +139,7 @@ public class FrontController extends HttpServlet {
             } else {
                 response.getWriter().println("[Framework Error] La méthode n'a pas renvoyé un ModelView.");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur : " + e.getMessage());
@@ -126,5 +155,65 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
+    }
+
+    private String convertObjectToJson(Object obj){
+        if(obj == null) return "null";
+        if(obj instanceof String){
+            return "\"" + obj.toString().replace("\"", "\\\"")+ "\"";
+        }
+        if (obj instanceof Number || obj instanceof Boolean) {
+            return obj.toString();
+        }
+        if (obj instanceof Collection) {
+            StringBuilder sb = new  StringBuilder("[");
+            Collection<?> liste = (Collection<?>) obj;//on caste la liste en collection qu'on string-ifiera
+            int i=0;
+            for (Object item : liste) {
+                if (i > 0) sb.append(",");
+                sb.append(convertObjectToJson(item));
+                i++;
+            }
+            sb.append("]");
+            return sb.toString();
+        }
+        // 4. Gestion des Maps (comme la Map de données du ModelView)
+        if (obj instanceof java.util.Map) {
+            StringBuilder sb = new StringBuilder("{");
+            java.util.Map<?, ?> map = (java.util.Map<?, ?>) obj;
+            int i = 0;
+            for (java.util.Map.Entry<?, ?> entry : map.entrySet()) {
+                if (i > 0) sb.append(",");
+                sb.append("\"").append(entry.getKey()).append("\":");
+                sb.append(convertObjectToJson(entry.getValue()));
+                i++;
+            }
+            sb.append("}");
+            return sb.toString();
+        }
+
+        // 5. Gestion des objets personnalisés (POJO comme Employe, Departement, etc.) via la Réflexion
+        try {
+            StringBuilder sb = new StringBuilder("{");
+            java.lang.reflect.Field[] fields = obj.getClass().getDeclaredFields();
+            int i = 0;
+            for (java.lang.reflect.Field field : fields) {
+                field.setAccessible(true); // Permet de lire les attributs privés (private)
+                
+                // On ignore les champs introduits par la couverture de code ou les proxys (ex: jacoco)
+                if (field.getName().startsWith("$")) continue; 
+
+                if (i > 0) sb.append(",");
+                
+                sb.append("\"").append(field.getName()).append("\":");
+                Object value = field.get(obj);
+                sb.append(convertObjectToJson(value));
+                i++;
+            }
+            sb.append("}");
+            return sb.toString();
+        } catch (Exception e) {
+            return "{\"error\":\"Sérialisation impossible de l'objet: " + e.getMessage() + "\"}";
+        }
     }
 }
