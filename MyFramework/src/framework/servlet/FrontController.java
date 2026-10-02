@@ -86,6 +86,8 @@ public class FrontController extends HttpServlet {
                 
                 response.setContentType("application/json;charset=UTF-8");
                 PrintWriter out = response.getWriter();
+
+                
                 
                 if (result == null) {
                     out.print("{}");

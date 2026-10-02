@@ -17,12 +17,6 @@ public class RestController {
 
     @Autowired 
     private  UserService userService;
-
-    @UrlMapping (value = "/api/status", method = "get")
-    @APIRest 
-    public String getStatus(){
-        return "{\"status\":\"success\", \"message\":\"Le framework fonctionne !\", \"annee\":2026}";
-    }
     
     @UrlMapping (value = "/api/liste" , method = "get")
     @APIRest 
@@ -31,5 +25,20 @@ public class RestController {
         List<UserModel> employes = userService.getAllUser();
         mv.addItem("employeLists", employes);
         return mv;
+    }
+
+    
+    @UrlMapping (value= "/api/test", method = "get")
+    @APIRest 
+    public ModelView affiche(){
+        ModelView mv = new ModelView("");
+        // Simulation des données en mémoire
+        List<String> employes = new ArrayList<>();
+        employes.add("Alice");
+        employes.add("Bob");
+        employes.add("Charlie");
+        mv.addItem("liste", employes);
+        return mv;
+        //return "salut";
     }
 }
