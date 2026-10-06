@@ -3,8 +3,8 @@ package model;
 import java.util.Objects;
 
 public class Urlkey {
-    private String url;
-    private String method;
+    private String url; // le chemin url 
+    private String method; // définit si get ou post,option,put ou patch
     public Urlkey() {}
     public Urlkey(String url, String method) {
         this.url = url;
@@ -24,20 +24,20 @@ public class Urlkey {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Urlkey urlkey = (Urlkey)o;
-        return  Objects.equals(url,urlkey.url) && Objects.equals(method, urlkey.method);
+    public boolean equals(Object o){ // vérification si deux variable pointent vers la même adresse mémoire et éviter le nullPointerException
+        if(this == o) return true; // on le compare à lui même 
+        if (o == null || getClass() != o.getClass()) return false; // vérifier si l'objet est un null ou que ce n'est pas un appel de UrlKey
+        Urlkey urlkey = (Urlkey)o; //cast de l'objet en urlkey
+        return  Objects.equals(url,urlkey.url) && Objects.equals(method, urlkey.method); 
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() {// création d'une signature unique 
         return Objects.hash(url, method);
     }
 
     @Override
-    public String toString() {
+    public String toString() {//affichage de la méthode et de l'url entrer dans le navigateur
         return "[" + method + "] " + url;
     }
     
