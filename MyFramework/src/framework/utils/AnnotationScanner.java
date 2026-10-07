@@ -12,12 +12,12 @@ public class AnnotationScanner {
     public static int scanComponents(String packageToScan, HashMap<Urlkey, Mapping> mappingUrls) throws Exception {
         int controllerCount = 0; 
         
-        String path = packageToScan.replace('.', '/');
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL resource = classLoader.getResource(path);
+        String path = packageToScan.replace('.', '/'); // remplace le package app.controller.ListeController en app/controller/ListeController pour la navigation dans le code
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader(); // navigation dans les dossiers compilé .class de java dans webapp dans le conteneur 
+        URL resource = classLoader.getResource(path); // recherche dans tomcat/webbapp le dossier physique 
 
         if (resource == null) {
-            resource = AnnotationScanner.class.getClassLoader().getResource(path);
+            resource = AnnotationScanner.class.getClassLoader().getResource(path); 
         }
         if (resource == null) {
             resource = AnnotationScanner.class.getResource("/" + path);
