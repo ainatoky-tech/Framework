@@ -46,4 +46,57 @@ public class Userrepository {
     }
 
 
+    public int insertByObjectBinding(UserModel user) throws Exception{
+        try(Connection connect = database.getConnection()) {
+            return insertByObjectBinding(connect, user);
+        }
+    }
+    public int insertByObjectBinding(Connection connection,UserModel user) throws Exception{
+        int lastuser= -1;
+        String request = "INSERT INTO testframework.users(username,`function`) VALUES (?,?)";
+        try(
+            PreparedStatement ps = connection.prepareStatement(request,java.sql.Statement.RETURN_GENERATED_KEYS);
+        ) {
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getFunction());
+            ps.executeUpdate();
+            try(var resultset = ps.getGeneratedKeys()){
+                if(resultset.next()){
+                    lastuser = resultset.getInt(1);
+                    return lastuser;
+                } else {
+                    return lastuser;
+                }
+            }
+        } 
+    }
+
+
+    public int insertByParameterBinding(String username, String function) throws Exception{
+        try(Connection connect = database.getConnection()) {
+            return insertByParameterBinding(connect, username, function);
+        }
+    }
+    public int insertByParameterBinding(Connection connection , String username, String function) throws Exception{
+        int lastuser = -1;
+        String request = "INSERT INTO testframework.users(username,`function`) VALUES (?,?)";
+        try(
+            PreparedStatement ps = connection.prepareStatement(request,java.sql.Statement.RETURN_GENERATED_KEYS);
+        ) {
+            ps.setString(1, username);
+            ps.setString(2, function);
+            ps.executeUpdate();
+            try(var resultset = ps.getGeneratedKeys()){
+                if(resultset.next()){
+                    lastuser = resultset.getInt(1);
+                    return lastuser;
+                } else {
+                    return lastuser;
+                }
+            }
+        } 
+
+    }
+
+
 }
