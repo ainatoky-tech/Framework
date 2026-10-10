@@ -27,7 +27,7 @@ WEBINF_LIB="$WEB_DIRECTORY/WEB-INF/lib"
 
     find $SRC_DIRECTORY -name "*.java" > sources.txt
     if [ -s sources.txt ]; then
-        javac -cp "$ClassPath" -d $BUILD_DIRECTORY/WEB-INF/classes @sources.txt
+        javac -parameters -cp "$ClassPath" -d $BUILD_DIRECTORY/WEB-INF/classes @sources.txt
     else    
         echo "Aucun fichier Java trouvé dans $SRC_DIRECTORY"
     fi

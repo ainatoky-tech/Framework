@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Parameter;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -78,9 +79,14 @@ public class FrontController extends HttpServlet {
             } else {
                 System.err.println("[DEBUG FRONTCONTROLLER ERROR] -> springContext est NULL dans ServletContext !");
             }
-            
-            java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName());
-            Object result = methodToExecute.invoke(controllerInstance);
+            Class<?>[] paramTypes = mapping.getParameterTypes();
+            String[] paramName = mapping.getParameterName();
+            java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName(),paramTypes);
+            Object[] args = new Object[paramTypes.length];
+            for (int i = 0; i < paramTypes.length; i++) {
+                args[i] = resolveArgument(paramTypes[i],paramName[i],request);
+            }
+            Object result = methodToExecute.invoke(controllerInstance,args);
 
             if (methodToExecute.isAnnotationPresent(APIRest.class)) {
                 
@@ -123,6 +129,15 @@ public class FrontController extends HttpServlet {
                 }
 
                 String viewName = mv.getUrl().trim();
+
+                // ✅ NOUVEAU : support de "redirect:/..."
+                if (viewName.startsWith("redirect:")) {
+                    String target = viewName.substring("redirect:".length());
+                    response.sendRedirect(request.getContextPath() + target);
+                    return;
+                }
+
+                
                 if (viewName.endsWith(".jsp")) {
                     viewName = viewName.substring(0, viewName.length() - 4);
                 }
@@ -217,5 +232,55 @@ public class FrontController extends HttpServlet {
         } catch (Exception e) {
             return "{\"error\":\"Sérialisation impossible de l'objet: " + e.getMessage() + "\"}";
         }
+    }
+    /**
+     * Construit UN argument à partir de la requête.
+     * - Types simples (String, int, double, boolean) : lecture directe
+     * - POJO (UserModel, Objet...) : newInstance + remplissage par réflexion
+     */
+    private Object resolveArgument(Class<?> type, String name, HttpServletRequest request)
+            throws Exception {
+
+        // 1. Types simples
+        if (type == String.class) {
+            return request.getParameter(name);
+        }
+        if (type == int.class || type == Integer.class) {
+            String v = request.getParameter(name);
+            return (v == null || v.isEmpty()) ? 0 : Integer.parseInt(v);
+        }
+        if (type == long.class || type == Long.class) {
+            String v = request.getParameter(name);
+            return (v == null || v.isEmpty()) ? 0L : Long.parseLong(v);
+        }
+        if (type == double.class || type == Double.class) {
+            String v = request.getParameter(name);
+            return (v == null || v.isEmpty()) ? 0.0 : Double.parseDouble(v);
+        }
+        if (type == boolean.class || type == Boolean.class) {
+            return Boolean.parseBoolean(request.getParameter(name));
+        }
+
+        // 2. POJO : on instancie et on remplit chaque champ depuis la requête
+        Object pojo = type.getDeclaredConstructor().newInstance();
+        for (java.lang.reflect.Field field : type.getDeclaredFields()) {
+            String value = request.getParameter(field.getName());
+            if (value == null) continue; // champ absent → valeur par défaut (null, 0...)
+            field.setAccessible(true);
+            field.set(pojo, convertToType(value, field.getType()));
+        }
+        return pojo;
+    }
+
+    /**
+     * Convertit une String reçue du formulaire vers le type Java du champ.
+     */
+    private Object convertToType(String value, Class<?> type) {
+        if (type == String.class)                          return value;
+        if (type == int.class || type == Integer.class)    return Integer.parseInt(value);
+        if (type == long.class || type == Long.class)      return Long.parseLong(value);
+        if (type == double.class || type == Double.class)  return Double.parseDouble(value);
+        if (type == boolean.class || type == Boolean.class)return Boolean.parseBoolean(value);
+        return value; // fallback
     }
 }

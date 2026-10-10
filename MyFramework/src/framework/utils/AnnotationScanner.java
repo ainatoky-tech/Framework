@@ -4,6 +4,7 @@ import model.*;
 import annotation.*;
 import java.io.File;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.URL;
 import java.util.HashMap;
 
@@ -45,9 +46,15 @@ public class AnnotationScanner {
                                 if (method.isAnnotationPresent(UrlMapping.class)) {
                                     UrlMapping mapping = method.getAnnotation(UrlMapping.class);
                                     String url = mapping.value();
-                                    
-                                    // REFIXE DYNAMIQUE DU SPRINT 3 : On extrait la vraie méthode HTTP configurée !
-                                    String httpMethod = mapping.method().toUpperCase(); 
+                                    String httpMethod = mapping.method().toUpperCase();
+
+                                    //ajout du binding 
+                                    Class<?>[] paramtype = method.getParameterTypes();
+                                    Parameter[] parameters =method.getParameters(); 
+                                    String[] parametersName = new String[parameters.length];
+                                    for(int i=0; i < parameters.length; i++){
+                                        parametersName[i]= parameters[i].getName();
+                                    } 
 
                                     // Création de la clé unique URL + Méthode HTTP
                                     Urlkey key = new Urlkey(url, httpMethod);
@@ -58,8 +65,9 @@ public class AnnotationScanner {
                                     }
 
                                     // Stockage sécurisé
-                                    mappingUrls.put(key, new Mapping(clazz.getName(), method.getName()));
-                                    System.out.println("  └── Enregistré : [" + httpMethod + "] " + url + " ──> " + method.getName() + "()");
+                                    mappingUrls.put(key, new Mapping(clazz.getName(), method.getName(),paramtype,parametersName));
+                                    System.out.println("  └── Enregistré : [" + httpMethod + "] " + url + " ──> " + method.getName() + "("
+                                    + String.join(", ", parametersName) + ")");
                                 }
                             }
                         }

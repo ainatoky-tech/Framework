@@ -18,4 +18,12 @@ public class UserService {
     public List<UserModel> getAllUser(){
             return userRepo.findall();
     }
+
+    public int insertByObjectBinding(UserModel user, String extension) throws Exception {
+        return userRepo.insertByObjectBinding(user, extension);
+    }
+    
+    public int insertByParameterBinding(String username, String function, String extension) throws Exception {
+        return userRepo.insertByParameterBinding(username, function, extension);
+    }
 }
