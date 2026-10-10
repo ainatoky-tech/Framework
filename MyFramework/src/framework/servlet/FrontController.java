@@ -79,7 +79,7 @@ public class FrontController extends HttpServlet {
             } else {
                 System.err.println("[DEBUG FRONTCONTROLLER ERROR] -> springContext est NULL dans ServletContext !");
             }
-            Class<?>[] paramTypes = mapping.getParameterClasses();
+            Class<?>[] paramTypes = mapping.getParameterTypes();
             String[] paramName = mapping.getParameterName();
             java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName(),paramTypes);
             Object[] args = new Object[paramTypes.length];
@@ -129,6 +129,15 @@ public class FrontController extends HttpServlet {
                 }
 
                 String viewName = mv.getUrl().trim();
+
+                // ✅ NOUVEAU : support de "redirect:/..."
+                if (viewName.startsWith("redirect:")) {
+                    String target = viewName.substring("redirect:".length());
+                    response.sendRedirect(request.getContextPath() + target);
+                    return;
+                }
+
+                
                 if (viewName.endsWith(".jsp")) {
                     viewName = viewName.substring(0, viewName.length() - 4);
                 }
