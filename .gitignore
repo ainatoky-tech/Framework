@@ -7,6 +7,7 @@
 MyFramework/Dockerfile
 MyFramework/docker-compose.yml
 MyFramework/.devcontainer
+MyFramework/docs_sprints/*.md
 
 #mods for Docker int testFrameworkperso
 testFrameworkperso/Dockerfile
