@@ -23,3 +23,11 @@ INSERT INTO testframework.extension(iduser,poste) VALUES
 (2, 'chief'),
 (1, 'mentor'),
 (3, 'older');
+
+CREATE TABLE testframework.files(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    filename VARCHAR(255),
+    extension VARCHAR(22),
+    content LONGBLOB,          -- ← les bytes
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
