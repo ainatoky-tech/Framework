@@ -2,9 +2,12 @@ package servlet;
 
 import model.*;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Parameter;
@@ -13,6 +16,11 @@ import java.util.HashMap;
 
 import annotation.APIRest;
 
+@MultipartConfig(
+    fileSizeThreshold = 1024 * 1024,
+    maxFileSize = 10 * 1024 * 1024,
+    maxRequestSize = 50 * 1024 * 1024
+)
 public class FrontController extends HttpServlet {
 
     // PLUS D'INIT ICI ! Le démarrage est géré par le Listener.
@@ -259,6 +267,27 @@ public class FrontController extends HttpServlet {
         }
         if (type == boolean.class || type == Boolean.class) {
             return Boolean.parseBoolean(request.getParameter(name));
+        }
+        if(type == Mapfile.class){
+            Part part = request.getPart(name);
+            if (part == null) return null;
+            String submitted = part.getSubmittedFileName();
+            if (submitted == null || submitted.isEmpty()) {
+                return null;
+            }
+
+            String filename = submitted;
+            String extension = "";
+            int dot = submitted.lastIndexOf('.');
+            if(dot > 0){
+                filename= submitted.substring(0,dot);
+                extension = submitted.substring(dot + 1);
+            }
+            byte[] bytes;
+            try (var in = part.getInputStream()) {
+                bytes = in.readAllBytes();
+            }
+            return new Mapfile(filename, extension, bytes);
         }
 
         // 2. POJO : on instancie et on remplit chaque champ depuis la requête
