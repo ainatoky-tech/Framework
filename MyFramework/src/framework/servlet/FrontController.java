@@ -268,6 +268,9 @@ public class FrontController extends HttpServlet {
         if (type == boolean.class || type == Boolean.class) {
             return Boolean.parseBoolean(request.getParameter(name));
         }
+        if(type == MySesssion.class){
+            return new MySesssion(request.getSession());
+        }
         if(type == Mapfile.class){
             Part part = request.getPart(name);
             if (part == null) return null;
