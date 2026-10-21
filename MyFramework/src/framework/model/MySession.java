@@ -2,10 +2,10 @@ package model;
 
 import jakarta.servlet.http.HttpSession;
 
-public class MySesssion {
+public class MySession {
     private final HttpSession httpsession;
 
-    public MySesssion(HttpSession httpsession) {
+    public MySession(HttpSession httpsession) {
         this.httpsession = httpsession;
     }
     public Object getVariable(String name){

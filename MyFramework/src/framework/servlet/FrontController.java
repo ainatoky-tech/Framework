@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Parameter;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import annotation.APIRest;
 
@@ -70,11 +71,42 @@ public class FrontController extends HttpServlet {
         
         try {
             // 4. Exécution par réflexion
-            Class<?> clazz = Class.forName(mapping.getClassname());
-            Object controllerInstance = clazz.getDeclaredConstructor().newInstance();
-            
+            //Class<?> clazz = Class.forName(mapping.getClassname());
+            //Object controllerInstance = clazz.getDeclaredConstructor().newInstance();
+            Map<String, Object> controllers = (Map<String, Object>) getServletContext().getAttribute("controllers");
+            if (controllers == null) {
+                controllers = new HashMap<>();
+                getServletContext().setAttribute("controllers", controllers);
+            }
+
+            // Récupère la classe (toujours) et l'instance (peut-être)
+            String className = mapping.getClassname();
+            Class<?> clazz = Class.forName(className);          // ✅ HORS du if
+            Object controllerInstance = controllers.get(className);
+
+            if (controllerInstance == null) {
+                // Première fois → créer l'instance
+                controllerInstance = clazz.getDeclaredConstructor().newInstance();
+                
+                // Autowire Spring UNE SEULE FOIS (à la création)
+                Object springContext = getServletContext().getAttribute("springContext");
+                if (springContext != null) {
+                    Object beanFactory = springContext.getClass()
+                        .getMethod("getAutowireCapableBeanFactory").invoke(springContext);
+                    beanFactory.getClass()
+                        .getMethod("autowireBean", Object.class).invoke(beanFactory, controllerInstance);
+                    System.out.println("[SINGLETON] Création + injection : " + className);
+                } else {
+                    System.err.println("[WARN] springContext null, injection ignorée pour " + className);
+                }
+                
+                controllers.put(className, controllerInstance);
+            } else {
+                System.out.println("[SINGLETON] Réutilisation : " + className);
+            }
+
             // INJECTION PAR RÉFLEXION (Aucun import org.springframework)
-            Object springContext = getServletContext().getAttribute("springContext");
+            /*Object springContext = getServletContext().getAttribute("springContext");
             if (springContext != null) {
                 try {
                     Object beanFactory = springContext.getClass().getMethod("getAutowireCapableBeanFactory").invoke(springContext);
@@ -86,7 +118,8 @@ public class FrontController extends HttpServlet {
                 }
             } else {
                 System.err.println("[DEBUG FRONTCONTROLLER ERROR] -> springContext est NULL dans ServletContext !");
-            }
+            }*/
+
             Class<?>[] paramTypes = mapping.getParameterTypes();
             String[] paramName = mapping.getParameterName();
             java.lang.reflect.Method methodToExecute = clazz.getDeclaredMethod(mapping.getMethodName(),paramTypes);
@@ -268,8 +301,8 @@ public class FrontController extends HttpServlet {
         if (type == boolean.class || type == Boolean.class) {
             return Boolean.parseBoolean(request.getParameter(name));
         }
-        if(type == MySesssion.class){
-            return new MySesssion(request.getSession());
+        if(type == MySession.class){
+            return new MySession(request.getSession());
         }
         if(type == Mapfile.class){
             Part part = request.getPart(name);
