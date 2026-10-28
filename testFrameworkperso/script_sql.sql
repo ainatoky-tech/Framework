@@ -8,6 +8,9 @@ CREATE TABLE testframework.users (
     `function` VARCHAR(255) DEFAULT 'default_function'
 );
 
+
+
+
 INSERT INTO testframework.users(username, `function`) VALUES
 ('user1', 'Java Developer'),
 ('user2', 'Python Developer'),
@@ -30,4 +33,11 @@ CREATE TABLE testframework.files(
     extension VARCHAR(22),
     content LONGBLOB,          -- ← les bytes
     uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE testframework.administrator(
+    id_administrator INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(55),
+    id_role INT ,
+    FOREIGN KEY (id_role) REFERENCES testframework.extension(id)
 );

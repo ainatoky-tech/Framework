@@ -10,71 +10,67 @@ import java.util.HashMap;
 
 public class AnnotationScanner {
     
-    public static int scanComponents(String packageToScan, HashMap<Urlkey, Mapping> mappingUrls) throws Exception {
-        int controllerCount = 0; 
-        
-        String path = packageToScan.replace('.', '/'); // remplace le package app.controller.ListeController en app/controller/ListeController pour la navigation dans le code
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader(); // navigation dans les dossiers compilé .class de java dans webapp dans le conteneur 
-        URL resource = classLoader.getResource(path); // recherche dans tomcat/webbapp le dossier physique 
-
-        if (resource == null) {
-            resource = AnnotationScanner.class.getClassLoader().getResource(path); 
-        }
-        if (resource == null) {
-            resource = AnnotationScanner.class.getResource("/" + path);
-        }
-
-        if (resource == null) {
-            System.out.println("[Framework] Impossible de trouver le dossier correspondant à : " + packageToScan);
-            return 0;
-        }
-
-        File directory = new File(resource.toURI());
-        if (directory.exists() && directory.isDirectory()) {
-            File[] files = directory.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    if (file.getName().endsWith(".class")) {
-                        String className = packageToScan + "." + file.getName().substring(0, file.getName().length() - 6);
-                        Class<?> clazz = Class.forName(className);
-
-                        if (clazz.isAnnotationPresent(Controller.class)) {
-                            controllerCount++; 
-                            System.out.println("[CLASSE DÉTECTÉE] -> " + clazz.getName());
-
-                            for (Method method : clazz.getDeclaredMethods()) {
-                                if (method.isAnnotationPresent(UrlMapping.class)) {
-                                    UrlMapping mapping = method.getAnnotation(UrlMapping.class);
-                                    String url = mapping.value();
-                                    String httpMethod = mapping.method().toUpperCase();
-
-                                    //ajout du binding 
-                                    Class<?>[] paramtype = method.getParameterTypes();
-                                    Parameter[] parameters =method.getParameters(); 
-                                    String[] parametersName = new String[parameters.length];
-                                    for(int i=0; i < parameters.length; i++){
-                                        parametersName[i]= parameters[i].getName();
-                                    } 
-
-                                    // Création de la clé unique URL + Méthode HTTP
-                                    Urlkey key = new Urlkey(url, httpMethod);
-
-                                    // Vérification d'unicité réelle
-                                    if (mappingUrls.containsKey(key)) {
-                                        throw new Exception("[DUPLICATE ROUTE ERROR] L'URL '" + url + "' avec la méthode " + httpMethod + " est déjà déclarée !");
-                                    }
-
-                                    // Stockage sécurisé
-                                    mappingUrls.put(key, new Mapping(clazz.getName(), method.getName(),paramtype,parametersName));
-                                    System.out.println("  └── Enregistré : [" + httpMethod + "] " + url + " ──> " + method.getName() + "("
-                                    + String.join(", ", parametersName) + ")");
-                                }
-                            }
-                        }
-                    }
+    private static int scannerDossier(
+        File repertoire,
+        String packageName,
+        HashMap<Urlkey,Mapping> correspondanceUrlMethodinController
+    ) throws Exception{
+        int countFichier = 0;
+        File[] files = repertoire.listFiles();
+        for(File file : files){
+            if(file.getName().endsWith(".class")){
+                String className = packageName + "." + (file.getName().replace(".class", ""));
+                Class<?> classe = Class.forName(className);
+                if(classe.isAnnotationPresent(Controller.class)){
+                    countFichier++;
+                    analyserControlleur(classe,correspondanceUrlMethodinController);
                 }
             }
         }
-        return controllerCount; 
+        return countFichier;
     }
+
+
+    private static  void analyserControlleur(Class<?> clazz , HashMap<Urlkey,Mapping> correspondanceURLinMethodController) throws Exception{
+        System.out.println("[Scanner] Contrôleur trouvé : " + clazz.getName());
+        for(Method methode : clazz.getDeclaredMethods()){
+            if(methode.isAnnotationPresent(UrlMapping.class)){
+                UrlMapping mapping = methode.getAnnotation(UrlMapping.class);
+                Urlkey key = new Urlkey(mapping.value(),mapping.method().toUpperCase());
+                String[] parameter = new String[methode.getParameters().length];
+
+                for(int i=0; i<parameter.length; i++){
+                    parameter[i] = methode.getParameters()[i].getName();
+                }
+
+                correspondanceURLinMethodController.put(key, new Mapping(clazz.getName(), methode.getName(), methode.getParameterTypes(), parameter));
+                System.out.println(" -> routes  : [ " + key.getUrl() + "] " + key.getMethod());
+            }
+        }
+    }
+
+    /**
+     * scanner de l'url vers les fichiers controller ou affichage lui correspondant 
+     * @param packageToScan
+     * @param correspondanceUrlMethodInController
+     * @throws Exception
+     * 
+     * - convertissez le . sur le package de chaque classe java en / 
+     * - convertissez le en forme d'url 
+     */
+    public static int scanComponents(
+        String packageToScan, 
+        HashMap<Urlkey,Mapping> correspondanceUrlMethodInController
+    ) throws Exception{
+        String path = packageToScan.replace(".", "/");
+        URL ressource = Thread.currentThread().getContextClassLoader().getResource(path);
+        if (ressource == null) {
+            System.out.println("[Scanner] Impossible de trouver le package : " + packageToScan);
+            return 0;
+        }
+        File directory = new File(ressource.toURI());
+        return scannerDossier(directory, packageToScan, correspondanceUrlMethodInController);
+    }
+
+
 }

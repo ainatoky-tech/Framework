@@ -7,6 +7,7 @@ public class Mapping {
     private final Class<?>[] parameterTypes;
     private final String [] parameterName;
 
+
     public Mapping(String classname,String methodName,Class<?>[] parameterTypes, String[] parameterName){
         this.classname=classname;
         this.methodName= methodName;
