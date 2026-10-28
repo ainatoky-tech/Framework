@@ -42,16 +42,16 @@ public class FrontController extends HttpServlet {
     private void afficherPanel(HttpServletResponse response) throws IOException {
         response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("==========================================");
-        out.println("            TABLEAU DE BORD               ");
-        out.println("==========================================");
-        HashMap<Urlkey,Mapping>  correspondanceUrlMethodInController = (HashMap<Urlkey,Mapping>) getServletContext().getAttribute("correspondanceUrlMethodInController");
-        if(correspondanceUrlMethodInController != null){
-            correspondanceUrlMethodInController.forEach( (method,controller) -> 
-            out.print(" méthode : [ "+ method.getMethod() + " ] " + method.getUrl() + " -> " 
-            + controller.getClassname() + " . " + controller.getMethodName() + "() ")
-        );
-
+        out.print("==========================================\r\n");
+        out.print("            TABLEAU DE BORD               \r\n");
+        out.print("==========================================\r\n");
+        
+        HashMap<Urlkey,Mapping> mappingUrls = (HashMap<Urlkey,Mapping>) getServletContext().getAttribute("mappingUrls");
+        if(mappingUrls != null){
+            mappingUrls.forEach( (method, controller) -> {
+                out.print(" méthode : [ "+ method.getMethod() + " ] " + method.getUrl() + " -> " 
+                + controller.getClassname() + " . " + controller.getMethodName() + "() \r\n");
+            });
         }
     }
 
@@ -72,13 +72,20 @@ public class FrontController extends HttpServlet {
             afficherPanel(response);
             return ;
         }
+        if (URLintercepter.startsWith("/WEB-INF/jsp/")) {
+            request.getServletContext().getNamedDispatcher("jsp").forward(request, response);
+            return; 
+        }
 
-        HashMap<Urlkey,Mapping> correspondanceUrlMethodInController = (HashMap<Urlkey,Mapping>) getServletContext().getAttribute("correspondanceUrlMethodInController");
+        /**
+         * mappingUrls : correspondance entre l'url et les méthodes en controlleur qui lui est associé 
+         */
+        HashMap<Urlkey,Mapping> mappingUrls  = (HashMap<Urlkey,Mapping>) getServletContext().getAttribute("mappingUrls");
         Urlkey cheminUrlavecMethode = new Urlkey(URLintercepter, request.getMethod().toUpperCase());
         /**
          * on prend le chemin url et la méthode get ou post qu'on agrandira avec toUpperCase() post => POST ect.. ;
          */
-        Mapping mapping = (correspondanceUrlMethodInController != null) ? correspondanceUrlMethodInController.get(cheminUrlavecMethode) : null;
+        Mapping mapping = (mappingUrls  != null) ? mappingUrls .get(cheminUrlavecMethode) : null;
         if (mapping == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Route introuvable : " + URLintercepter);
             return;
@@ -143,10 +150,10 @@ public class FrontController extends HttpServlet {
      *  alors imagine écrire la méthode DecouplageParSpring à chaque méthode avec le UrlMapping
      */
     private void DecouplageParSpring(Object controlleur){
-        Object springContexte = getServletContext().getAttribute("springContexte");
-        if (springContexte != null) {
+        Object springContext = getServletContext().getAttribute("springContext");
+        if (springContext != null) {
             try {
-                Object factory = springContexte.getClass().getMethod("getAutowireCapableBeanFactory").invoke(springContexte);
+                Object factory = springContext.getClass().getMethod("getAutowireCapableBeanFactory").invoke(springContext);
                 factory.getClass().getMethod("autowireBean", Object.class).invoke(factory, controlleur);
             } catch (Exception ignored) { }
         }
@@ -201,6 +208,7 @@ public class FrontController extends HttpServlet {
 
             String path = "/WEB-INF/jsp/" + mv.getUrl().replace(".jsp","") + ".jsp";
             request.getRequestDispatcher(path).forward(request, response);
+            //request.getServletContext().getNamedDispatcher("jsp").forward(request, response);
         }
     }   
 

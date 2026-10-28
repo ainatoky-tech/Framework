@@ -18,6 +18,12 @@ public class ArgumentResolver {
     }
 
     public static Object resolve(Class<?> type,String name, HttpServletRequest request) throws Exception{
+        if (type == jakarta.servlet.http.HttpServletRequest.class) {
+            return request;
+        }
+        if (type == jakarta.servlet.http.HttpSession.class) {
+            return request.getSession();
+        }
         if(type == String.class) return request.getParameter(name);
         if(type == int.class || type  == Integer.class){
             String v = request.getParameter(name);

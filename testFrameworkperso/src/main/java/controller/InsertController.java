@@ -2,6 +2,7 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import annotation.Auth;
 import annotation.Controller;
 import annotation.UrlMapping;
 import model.ModelView;
@@ -16,6 +17,7 @@ public class InsertController {
     /**
      * GET /emp/save → affiche le formulaire
      */
+    @Auth (role = "chief")
     @UrlMapping(value = "/emp/save", method = "GET")
     public ModelView afficherFormulaire() {
         ModelView mv = new ModelView("form-objet");   
@@ -25,6 +27,7 @@ public class InsertController {
     /**
      * POST /emp/save → traite la soumission (binding par paramètres)
      */
+    @Auth (role = "chief")
     @UrlMapping(value = "/emp/save", method = "POST")
     public ModelView save(String username, String function, String extension) throws Exception {
         // Appel au service qui appelle le repository
@@ -35,6 +38,7 @@ public class InsertController {
         return mv;
     }
 
+    @Auth (role = "chief")
     @UrlMapping(value = "/emp/save-objet", method = "POST")
     public ModelView saveByObject(UserModel user, String extension) throws Exception {
         int newId = userService.insertByObjectBinding(user, extension);

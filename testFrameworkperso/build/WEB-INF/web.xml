@@ -9,6 +9,14 @@ version="6.0">
         <param-name>packageToScan</param-name>
         <param-value>controller</param-value>
     </context-param>
+    <context-param>
+        <param-name>authSessionKey</param-name>
+        <param-value>user</param-value>
+    </context-param>
+    <context-param>
+        <param-name>authRoleAttribute</param-name>
+        <param-value>function</param-value> <!-- Car UserModel a un attribut "function" -->
+    </context-param>
 
     <listener> 
         <listener-class>listener.ContextLoaderListener</listener-class>

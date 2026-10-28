@@ -2,7 +2,7 @@ package model;
 
 public class ExtentionModel {
     private int id;
-    private int idUser;      // ✅ AJOUT
+    private int idUser;      
     private String extension;
 
     public ExtentionModel() {}

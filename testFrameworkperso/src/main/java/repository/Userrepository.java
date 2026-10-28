@@ -46,6 +46,32 @@ public class Userrepository {
     }
 
 
+    public UserModel findByName(String name) throws Exception {
+        try (Connection connect = database.getConnection()) {
+            return findByName(connect, name);
+        }    
+    }
+
+    public UserModel findByName(Connection connection, String name) throws Exception {
+        String request = "SELECT id, username, `function` FROM testframework.users WHERE username = ?";
+        try (PreparedStatement ps = connection.prepareStatement(request)) {
+            ps.setString(1, name); // ⚠️ CORRECTION : on met "name" et non "request"
+            
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    // On retourne l'utilisateur trouvé
+                    return new UserModel(
+                        rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("function")
+                    );
+                }
+            }
+        }
+        return null; // Si l'utilisateur n'existe pas, on renvoie null
+    }
+
+
     public int insertByObjectBinding(UserModel user, String extension) throws Exception {
         try (Connection connect = database.getConnection()) {
             return insertByObjectBinding(connect, user, extension);
@@ -53,7 +79,7 @@ public class Userrepository {
     }
 
     public int insertByObjectBinding(Connection connection, UserModel user, String extension) throws Exception {
-        connection.setAutoCommit(false);   // ✅ transaction
+        connection.setAutoCommit(false);   
         try {
             // 1. INSERT USER
             String requestUser = "INSERT INTO testframework.users(username, `function`) VALUES (?, ?)";
