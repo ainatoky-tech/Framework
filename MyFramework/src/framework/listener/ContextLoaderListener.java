@@ -10,55 +10,68 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import java.util.HashMap;
 
+/**
+ * @author moi 
+ * ContextLoaderListener
+ * Code encore à expliquer 
+ */
+
 @WebListener // Cette annotation dit à Tomcat : "Ceci est un espion de démarrage !"
 public class ContextLoaderListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("==================================================");
-        System.out.println("   [LISTENER] APPLICATION TOMCAT DÉMARRÉE        ");
-        System.out.println("==================================================");
-
         ServletContext context = sce.getServletContext();
-        
-        // 1. On récupère le paramètre global depuis le web.xml
+        System.out.println("==================================================");
+        System.out.println("   [LISTENER] DÉMARRAGE DU FRAMEWORK              ");
+        System.out.println("==================================================");
+        initialiserConfigurationAuth(context);
+        initialiserRoutes(context);
+        initialiserSpring(context);
+        System.out.println("==================================================");
+    }
+
+    private void initialiserConfigurationAuth(ServletContext context){
+        String sessionKey = context.getInitParameter("authSessionKey");
+        String roleAttribut = context.getInitParameter("authRoleAttribute");
+        context.setAttribute("authSessionKey", (sessionKey != null && !sessionKey.isEmpty()) ? sessionKey : "user");
+        context.setAttribute("authRoleAttribute", (roleAttribut != null && !roleAttribut.isEmpty()) ? roleAttribut : "role");
+
+        System.out.println("[AUTH] Clé session : '" + context.getAttribute("authSessionKey") + "' | Attribut rôle : '" + context.getAttribute("authRoleAttribute") + "'");
+    }
+
+    private void initialiserRoutes(ServletContext context) {
         String packageToScan = context.getInitParameter("packageToScan");
-       
-       if (packageToScan != null && !packageToScan.trim().isEmpty()) {
-            try {
-                HashMap<Urlkey, Mapping> mappingUrls = new HashMap<>();
-                int totalControllers = AnnotationScanner.scanComponents(packageToScan, mappingUrls);
-
-                context.setAttribute("mappingUrls", mappingUrls);
-                context.setAttribute("totalControllersFound", totalControllers);
-
-                System.out.println("[Listener SUCCESS] " + totalControllers + " contrôleurs chargés au démarrage !");
-            } catch (Exception e) {
-                System.err.println("[Listener CRITICAL ERROR] Échec du scan au démarrage !");
-                e.printStackTrace();
-                throw new RuntimeException(e);
-            }
-        } else {
-            System.err.println("[Listener WARNING] Le paramètre 'packageToScan' est manquant dans web.xml.");
+        if (packageToScan == null || packageToScan.trim().isEmpty()) {
+            System.err.println("[WARNING] Le paramètre 'packageToScan' est manquant dans web.xml.");
+            return;
         }
 
-        // 2. Initialisation de Spring IoC par réflexion
         try {
-            Class<?> xmlContextClass = Class.forName("org.springframework.context.support.ClassPathXmlApplicationContext");
-            Object springContext = xmlContextClass.getConstructor(String.class).newInstance("applicationContext.xml");  
-
-            context.setAttribute("springContext", springContext);
-            System.out.println("[Framework SUCCESS] Spring IoC initialisé avec succès !");
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("[Framework INFO] Spring IoC non présent dans WEB-INF/lib. Mode standalone.");
+            HashMap<Urlkey, Mapping> mappingUrls = new HashMap<>();
+            int total = AnnotationScanner.scanComponents(packageToScan, mappingUrls);
+            context.setAttribute("mappingUrls", mappingUrls);
+            context.setAttribute("totalControllersFound", total);
+            System.out.println("[SCANNER] " + total + " contrôleur(s) chargé(s).");
         } catch (Exception e) {
-            System.err.println("[Framework WARNING] Échec du chargement de applicationContext.xml :");
-            // e.printStackTrace() est crucial ici pour voir l'erreur XML exacte dans catalina.out
+            System.err.println("[ERREUR] Échec du scan au démarrage !");
             e.printStackTrace();
         }
+    }
 
-        System.out.println("==================================================");
+
+    private void initialiserSpring(ServletContext context) {
+        try {
+            Class<?> springClass = Class.forName("org.springframework.context.support.ClassPathXmlApplicationContext");
+            Object springContext = springClass.getConstructor(String.class).newInstance("applicationContext.xml");
+            context.setAttribute("springContext", springContext);
+            System.out.println("[SPRING] Contexte IoC initialisé.");
+        } catch (ClassNotFoundException e) {
+            System.out.println("[SPRING] Non présent dans WEB-INF/lib. Mode standalone.");
+        } catch (Exception e) {
+            System.err.println("[SPRING WARNING] Échec du chargement de applicationContext.xml :");
+            e.printStackTrace();
+        }
     }
 
     @Override

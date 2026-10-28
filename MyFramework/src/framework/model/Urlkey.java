@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Urlkey {
     private String url; // le chemin url 
     private String method; // définit si get ou post,option,put ou patch
+    
     public Urlkey() {}
     public Urlkey(String url, String method) {
         this.url = url;
